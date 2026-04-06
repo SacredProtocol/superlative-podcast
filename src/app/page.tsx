@@ -221,7 +221,7 @@ function About() {
             <ArrowIcon size={14} />
           </a>
           <span className="font-sans text-xs !text-[#ffffff]/30">
-            15 min &middot; Live &middot; No edits
+            20-30 min &middot; Live &middot; No edits
           </span>
         </div>
       </div>
