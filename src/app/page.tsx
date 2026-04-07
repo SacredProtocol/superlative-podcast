@@ -78,9 +78,6 @@ function Hero() {
           {siteConfig.showName}
         </h1>
 
-        {/* Decorative line */}
-        <div className="animate-fade-in delay-2 mt-8 sm:mt-10 h-px w-16 sm:w-24 bg-white/20" />
-
         {/* Host */}
         <p className="animate-fade-up delay-2 mt-4 sm:mt-5 font-sans text-xs sm:text-sm !text-[#ffffff]/70 uppercase tracking-[0.2em]">
           Hosted by {siteConfig.host}
