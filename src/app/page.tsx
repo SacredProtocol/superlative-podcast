@@ -100,7 +100,7 @@ function Hero() {
             className="group inline-flex items-center justify-center gap-2.5 bg-white !text-[#000000] font-sans font-medium text-sm px-7 py-4 sm:px-9 sm:py-4 transition-all duration-300 hover:bg-white/90 active:scale-[0.97] touch-manipulation"
           >
             <XIcon size={16} />
-            Follow on X
+            Follow Edward ({siteConfig.hostHandle})
             <ArrowIcon size={14} />
           </a>
           <a
@@ -217,7 +217,7 @@ function About() {
             className="group inline-flex items-center justify-center gap-2.5 bg-white !text-[#000000] font-sans font-medium text-sm px-7 py-4 transition-all duration-300 hover:bg-white/90 active:scale-[0.97] touch-manipulation"
           >
             <XIcon size={16} />
-            Follow {siteConfig.hostHandle}
+            Follow Edward ({siteConfig.hostHandle})
             <ArrowIcon size={14} />
           </a>
           <span className="font-sans text-xs !text-[#ffffff]/30">
@@ -289,7 +289,7 @@ function CTABanner() {
             className="group inline-flex items-center justify-center gap-2.5 bg-white !text-[#000000] font-sans font-medium text-sm px-8 py-4 transition-all duration-300 hover:bg-white/90 active:scale-[0.97] touch-manipulation"
           >
             <XIcon size={16} />
-            Follow {siteConfig.hostHandle}
+            Follow Edward ({siteConfig.hostHandle})
             <ArrowIcon size={14} />
           </a>
         </div>
