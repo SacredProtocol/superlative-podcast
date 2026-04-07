@@ -84,27 +84,16 @@ function Hero() {
         </p>
 
         {/* CTAs */}
-        <div className="animate-fade-up delay-4 mt-8 sm:mt-10 flex w-full flex-col gap-3 sm:flex-row sm:justify-center sm:w-auto">
+        <div className="animate-fade-up delay-4 mt-8 sm:mt-10 flex justify-center">
           <a
-            href={siteConfig.xProfileUrl}
+            href={siteConfig.calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center justify-center gap-2.5 bg-white !text-[#000000] font-sans font-medium text-sm px-7 py-4 sm:px-9 sm:py-4 transition-all duration-300 hover:bg-white/90 active:scale-[0.97] touch-manipulation"
+            className="group inline-flex items-center justify-center gap-2.5 bg-white !text-[#000000] font-sans font-medium text-sm px-8 py-4 sm:px-10 sm:py-4 transition-all duration-300 hover:bg-white/90 active:scale-[0.97] touch-manipulation"
           >
-            <XIcon size={16} />
-            Follow Edward ({siteConfig.hostHandle})
+            <CalendarIcon size={16} />
+            Apply to Be a Guest
             <ArrowIcon size={14} />
-          </a>
-          <a
-            href={siteConfig.youtubeUrl || "#"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-flex items-center justify-center gap-2.5 border border-white/15 !text-[#ffffff] font-sans font-medium text-sm px-7 py-4 sm:px-9 sm:py-4 transition-all duration-300 hover:border-white/30 hover:bg-white/5 active:scale-[0.97] touch-manipulation ${
-              !siteConfig.youtubeUrl ? "pointer-events-none opacity-25" : ""
-            }`}
-          >
-            <YouTubeIcon size={16} />
-            YouTube &mdash; Coming Soon
           </a>
         </div>
       </div>
@@ -275,21 +264,24 @@ function CTABanner() {
   return (
     <section className="bg-inverse-bg text-inverse-fg section-px py-12 sm:py-16">
       <div className="w-full max-w-2xl mx-auto text-center">
+        <p className="font-sans text-[10px] uppercase tracking-[0.3em] !text-[#ffffff]/40 mb-6">
+          Want to be a guest?
+        </p>
         <h2 className="text-xl sm:text-2xl lg:text-3xl tracking-tight">
-          Never miss an episode
+          Let&rsquo;s put your story on record.
         </h2>
         <p className="mt-3 font-sans text-sm !text-[#ffffff]/50">
-          New conversations drop live on X. Follow to get notified.
+          20-30 minutes. Live on X. No edits.
         </p>
         <div className="mt-6 sm:mt-8 flex justify-center">
           <a
-            href={siteConfig.xProfileUrl}
+            href={siteConfig.calendlyUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center justify-center gap-2.5 bg-white !text-[#000000] font-sans font-medium text-sm px-8 py-4 transition-all duration-300 hover:bg-white/90 active:scale-[0.97] touch-manipulation"
           >
-            <XIcon size={16} />
-            Follow Edward ({siteConfig.hostHandle})
+            <CalendarIcon size={16} />
+            Book a Conversation
             <ArrowIcon size={14} />
           </a>
         </div>

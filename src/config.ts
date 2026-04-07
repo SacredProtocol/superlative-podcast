@@ -7,7 +7,7 @@ export const siteConfig = {
   // Links — update these before launch
   xProfileUrl: "https://x.com/thespeakerlisan",
   youtubeUrl: "", // Placeholder — add URL once YouTube channel is live
-  calendlyUrl: "", // Insert Calendly booking link before handoff
+  calendlyUrl: "https://cal.com/lisan-of-sacred/tippingpoint", // Guest booking link
 
   // Episode feed config — switch source without rebuilding
   episodeFeed: {
