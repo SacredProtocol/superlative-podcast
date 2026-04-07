@@ -74,7 +74,7 @@ function Hero() {
         </div>
 
         {/* Title */}
-        <h1 className="animate-fade-up delay-1 text-[2rem] sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] leading-[0.95] tracking-tight">
+        <h1 className="animate-fade-up delay-1 text-[2rem] sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] leading-[0.95] tracking-tight !text-orange-400">
           {siteConfig.showName}
         </h1>
 
