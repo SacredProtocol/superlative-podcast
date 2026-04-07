@@ -92,7 +92,7 @@ function Hero() {
             className="group inline-flex items-center justify-center gap-2.5 bg-white !text-[#000000] font-sans font-medium text-sm px-8 py-4 sm:px-10 sm:py-4 transition-all duration-300 hover:bg-white/90 active:scale-[0.97] touch-manipulation"
           >
             <CalendarIcon size={16} />
-            Apply to Be a Guest
+            See How It Works
             <ArrowIcon size={14} />
           </a>
         </div>
@@ -265,13 +265,13 @@ function CTABanner() {
     <section className="bg-inverse-bg text-inverse-fg section-px py-12 sm:py-16">
       <div className="w-full max-w-2xl mx-auto text-center">
         <p className="font-sans text-[10px] uppercase tracking-[0.3em] !text-[#ffffff]/40 mb-6">
-          Want to be a guest?
+          Interested in being a guest?
         </p>
         <h2 className="text-xl sm:text-2xl lg:text-3xl tracking-tight">
-          Let&rsquo;s put your story on record.
+          Start with a quick intro call.
         </h2>
         <p className="mt-3 font-sans text-sm !text-[#ffffff]/50">
-          20-30 minutes. Live on X. No edits.
+          We&rsquo;ll walk you through the format, answer your questions, and see if it&rsquo;s a fit.
         </p>
         <div className="mt-6 sm:mt-8 flex justify-center">
           <a
@@ -281,7 +281,7 @@ function CTABanner() {
             className="group inline-flex items-center justify-center gap-2.5 bg-white !text-[#000000] font-sans font-medium text-sm px-8 py-4 transition-all duration-300 hover:bg-white/90 active:scale-[0.97] touch-manipulation"
           >
             <CalendarIcon size={16} />
-            Book a Conversation
+            Book an Intro Call
             <ArrowIcon size={14} />
           </a>
         </div>
