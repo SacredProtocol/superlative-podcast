@@ -23,14 +23,23 @@ export const siteConfig = {
   episodes: [
     {
       title: "Episode 3",
+      guest: "Varun Turlapati",
+      guestTitle: "Managing Director",
+      guestCompany: "Chaanakya Capital",
       url: "https://x.com/thespeakerlisan/status/2040173652868767985",
     },
     {
       title: "Episode 2",
+      guest: "Yangchen Sharma",
+      guestTitle: "General Partner",
+      guestCompany: "Roundtable Ventures",
       url: "https://x.com/thespeakerlisan/status/2039471823423975808",
     },
     {
       title: "Episode 1",
+      guest: "Charles Cormier",
+      guestTitle: "CEO",
+      guestCompany: "RaaSRocket",
       url: "https://x.com/thespeakerlisan/status/2038694757166379327",
     },
   ],

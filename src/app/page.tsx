@@ -169,10 +169,18 @@ function Episodes() {
 
                 {/* Title + meta */}
                 <span className="flex flex-col gap-0.5 min-w-0 flex-1">
-                  <span className="font-sans text-base sm:text-lg font-medium leading-snug truncate transition-colors">
+                  <span className="font-sans text-[10px] sm:text-xs text-muted uppercase tracking-[0.15em] mb-0.5">
                     {ep.title}
                   </span>
-                  <span className="font-sans text-[11px] sm:text-xs text-muted flex items-center gap-1.5">
+                  <span className="font-sans text-base sm:text-lg font-medium leading-snug truncate transition-colors">
+                    {ep.guest ?? ep.title}
+                  </span>
+                  {ep.guestTitle && ep.guestCompany && (
+                    <span className="font-sans text-[11px] sm:text-xs text-muted">
+                      {ep.guestTitle} &middot; {ep.guestCompany}
+                    </span>
+                  )}
+                  <span className="font-sans text-[11px] sm:text-xs text-muted flex items-center gap-1.5 mt-0.5">
                     <XIcon size={10} />
                     Watch on X
                   </span>
