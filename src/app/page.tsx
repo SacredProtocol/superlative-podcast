@@ -267,7 +267,7 @@ function CTABanner() {
         <p className="font-sans text-[10px] uppercase tracking-[0.3em] font-bold !text-[#ffffff]/60 mb-6">
           Interested in being a guest?
         </p>
-        <h2 className="text-xl sm:text-2xl lg:text-3xl tracking-tight" style={{fontFamily: 'var(--font-geist), system-ui, sans-serif', textTransform: 'none', fontWeight: 300, letterSpacing: '-0.01em'}}>
+        <h2 className="text-xl sm:text-2xl lg:text-3xl tracking-tight">
           Let&rsquo;s find out if it&rsquo;s a fit.
         </h2>
         <p className="mt-3 font-sans text-sm !text-[#ffffff]/50">
