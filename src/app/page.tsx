@@ -81,13 +81,8 @@ function Hero() {
         {/* Decorative line */}
         <div className="animate-fade-in delay-2 mt-6 sm:mt-8 h-px w-16 sm:w-24 bg-white/20" />
 
-        {/* Tagline */}
-        <p className="animate-fade-up delay-2 mt-6 sm:mt-8 font-sans text-base sm:text-xl lg:text-2xl !text-[#ffffff]/60 max-w-lg font-light tracking-wide">
-          {siteConfig.tagline}
-        </p>
-
         {/* Host */}
-        <p className="animate-fade-up delay-3 mt-3 font-sans text-xs sm:text-sm !text-[#ffffff]/30 uppercase tracking-[0.2em]">
+        <p className="animate-fade-up delay-2 mt-6 sm:mt-8 font-sans text-xs sm:text-sm !text-[#ffffff]/30 uppercase tracking-[0.2em]">
           Hosted by {siteConfig.host}
         </p>
 
