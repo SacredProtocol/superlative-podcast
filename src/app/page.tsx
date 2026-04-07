@@ -100,7 +100,7 @@ function Hero() {
 
       {/* Scroll indicator */}
       <div className="animate-fade-in delay-5 absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="font-sans text-[10px] uppercase tracking-[0.25em] !text-[#ffffff]/25">Scroll</span>
+        <span className="font-sans text-[10px] uppercase tracking-[0.25em] font-bold !text-[#ffffff]/50">Scroll</span>
         <div className="h-8 w-px bg-gradient-to-b from-white/30 to-transparent" />
       </div>
     </section>
@@ -188,7 +188,7 @@ function About() {
       <div className="w-full max-w-2xl mx-auto">
         <div className="flex items-center gap-4 mb-8 sm:mb-10">
           <div className="h-px flex-1 bg-white/10" />
-          <span className="font-sans text-[10px] sm:text-xs uppercase tracking-[0.3em] !text-[#ffffff]/40">
+          <span className="font-sans text-[10px] sm:text-xs uppercase tracking-[0.3em] font-bold !text-[#ffffff]/60">
             About
           </span>
           <div className="h-px flex-1 bg-white/10" />
@@ -264,7 +264,7 @@ function CTABanner() {
   return (
     <section className="bg-inverse-bg text-inverse-fg section-px py-12 sm:py-16">
       <div className="w-full max-w-2xl mx-auto text-center">
-        <p className="font-sans text-[10px] uppercase tracking-[0.3em] !text-[#ffffff]/40 mb-6">
+        <p className="font-sans text-[10px] uppercase tracking-[0.3em] font-bold !text-[#ffffff]/60 mb-6">
           Interested in being a guest?
         </p>
         <h2 className="text-xl sm:text-2xl lg:text-3xl tracking-tight">
