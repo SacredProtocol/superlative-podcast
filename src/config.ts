@@ -22,6 +22,20 @@ export const siteConfig = {
   // Featured episodes — add new episodes at the top
   episodes: [
     {
+      title: "Episode 5",
+      guest: "Kevin Zhang",
+      guestTitle: "Co-Founder",
+      guestCompany: "Loon",
+      url: "https://x.com/thespeakerlisan/status/2045140831976542240",
+    },
+    {
+      title: "Episode 4",
+      guest: "Sunny Ray",
+      guestTitle: "Co-Founder, RaaSRocket & President",
+      guestCompany: "Unocoin",
+      url: "https://x.com/thespeakerlisan/status/2044877463785013252",
+    },
+    {
       title: "Episode 3",
       guest: "Varun Turlapati",
       guestTitle: "Managing Director",
