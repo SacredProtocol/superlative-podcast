@@ -22,6 +22,13 @@ export const siteConfig = {
   // Featured episodes — add new episodes at the top
   episodes: [
     {
+      title: "Episode 6",
+      guest: "Tochi Chukwuemeka",
+      guestTitle: "Co-Founder",
+      guestCompany: "PajCash",
+      url: "https://x.com/thespeakerlisan/status/2045494019497836568",
+    },
+    {
       title: "Episode 5",
       guest: "Kevin Zhang",
       guestTitle: "Co-Founder",
