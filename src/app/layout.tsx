@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   title: "The Superlative Podcast | Edward Buchi",
   description:
     "A 15-minute live conversation hosted by Edward Buchi. Founders, investors, athletes, and media executives. No edits, no post-production. Streamed live to X.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "The Superlative Podcast",
     description:
