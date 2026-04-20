@@ -26,10 +26,12 @@ export const metadata: Metadata = {
     description:
       "One conversation. One guest. No ceiling. Live-streamed on X.",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@thespeakerlisan",
+    images: ["/og-image.png"],
   },
 };
 
