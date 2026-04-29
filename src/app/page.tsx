@@ -117,32 +117,35 @@ function Episodes() {
         <div className="mt-0 flex flex-col">
           {siteConfig.episodes.map((ep, i) => {
             const epNum = String(total - i).padStart(2, "0");
+            const primaryUrl = ep.youtubeUrl || ep.xUrl;
             return (
-              <a
-                key={ep.url}
-                href={ep.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex items-center gap-4 sm:gap-5 py-5 sm:py-7 border-b border-border transition-all duration-300 hover:pl-2 sm:hover:pl-4"
+              <div
+                key={ep.title}
+                className="relative flex items-center gap-4 sm:gap-5 py-5 sm:py-7 border-b border-border"
               >
                 {/* Episode number */}
                 <span className="font-sans text-xs sm:text-sm text-muted font-mono w-6 sm:w-8 flex-shrink-0 tabular-nums">
                   {epNum}
                 </span>
 
-                {/* Play button */}
-                <span className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-foreground flex items-center justify-center transition-all duration-300 group-hover:bg-foreground group-hover:border-foreground">
-                  <span className="!text-[#000000] group-hover:!text-[#ffffff] transition-colors duration-300">
+                {/* Play button — links to primary platform */}
+                <a
+                  href={primaryUrl || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 w-10 h-10 sm:w-11 sm:h-11 rounded-full border-2 border-foreground flex items-center justify-center transition-all duration-300 hover:bg-foreground"
+                >
+                  <span className="!text-[#000000] hover:!text-[#ffffff] transition-colors duration-300">
                     <PlayIcon />
                   </span>
-                </span>
+                </a>
 
-                {/* Title + meta */}
+                {/* Title + meta + platform badges */}
                 <span className="flex flex-col gap-0.5 min-w-0 flex-1">
                   <span className="font-sans text-[10px] sm:text-xs text-muted uppercase tracking-[0.15em] mb-0.5">
                     {ep.title}
                   </span>
-                  <span className="font-sans text-base sm:text-lg font-medium leading-snug truncate transition-colors">
+                  <span className="font-sans text-base sm:text-lg font-medium leading-snug truncate">
                     {ep.guest ?? ep.title}
                   </span>
                   {ep.guestTitle && (
@@ -150,20 +153,30 @@ function Episodes() {
                       {ep.guestTitle}{ep.guestCompany && <> &middot; {ep.guestCompany}</>}
                     </span>
                   )}
-                  <span className="font-sans text-[11px] sm:text-xs text-muted flex items-center gap-1.5 mt-0.5">
-                    {ep.url?.includes("youtu") ? (
-                      <><YouTubeIcon size={10} /> Watch on YouTube</>
-                    ) : (
-                      <><XIcon size={10} /> Watch on X</>
+                  <div className="flex gap-2 mt-2 flex-wrap">
+                    {ep.xUrl && (
+                      <a
+                        href={ep.xUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-sans text-[10px] border border-border rounded-full px-2.5 py-1 text-muted hover:text-foreground hover:border-foreground transition-colors"
+                      >
+                        <XIcon size={9} /> Watch on X
+                      </a>
                     )}
-                  </span>
+                    {ep.youtubeUrl && (
+                      <a
+                        href={ep.youtubeUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-sans text-[10px] border border-border rounded-full px-2.5 py-1 text-muted hover:text-foreground hover:border-foreground transition-colors"
+                      >
+                        <YouTubeIcon size={9} /> Watch on YouTube
+                      </a>
+                    )}
+                  </div>
                 </span>
-
-                {/* Arrow */}
-                <span className="flex-shrink-0 !text-[#000000] opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-0 group-hover:translate-x-1 hidden sm:block">
-                  <ArrowIcon size={16} />
-                </span>
-              </a>
+              </div>
             );
           })}
         </div>
