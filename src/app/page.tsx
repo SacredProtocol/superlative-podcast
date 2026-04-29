@@ -62,17 +62,6 @@ function Hero() {
       />
 
       <div className="relative w-full max-w-3xl mx-auto flex flex-col items-center text-center">
-        {/* Live badge */}
-        <div className="animate-fade-up mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5">
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
-          </span>
-          <span className="font-sans text-xs tracking-widest uppercase !text-[#ffffff]/60">
-            Live on X
-          </span>
-        </div>
-
         {/* Title */}
         <h1 className="animate-fade-up delay-1 text-[2rem] sm:text-[3.5rem] lg:text-[4.5rem] xl:text-[5.5rem] leading-[0.95] tracking-tight !text-white">
           {siteConfig.showName}
@@ -156,14 +145,17 @@ function Episodes() {
                   <span className="font-sans text-base sm:text-lg font-medium leading-snug truncate transition-colors">
                     {ep.guest ?? ep.title}
                   </span>
-                  {ep.guestTitle && ep.guestCompany && (
+                  {ep.guestTitle && (
                     <span className="font-sans text-[11px] sm:text-xs text-muted">
-                      {ep.guestTitle} &middot; {ep.guestCompany}
+                      {ep.guestTitle}{ep.guestCompany && <> &middot; {ep.guestCompany}</>}
                     </span>
                   )}
                   <span className="font-sans text-[11px] sm:text-xs text-muted flex items-center gap-1.5 mt-0.5">
-                    <XIcon size={10} />
-                    Watch on X
+                    {ep.url?.includes("youtu") ? (
+                      <><YouTubeIcon size={10} /> Watch on YouTube</>
+                    ) : (
+                      <><XIcon size={10} /> Watch on X</>
+                    )}
                   </span>
                 </span>
 

@@ -6,7 +6,7 @@ export const siteConfig = {
 
   // Links — update these before launch
   xProfileUrl: "https://x.com/thespeakerlisan",
-  youtubeUrl: "", // Placeholder — add URL once YouTube channel is live
+  youtubeUrl: "https://www.youtube.com/@TheSuperlativePodcast",
   calendlyUrl: "https://cal.com/smsp-schedhuler/pdon30", // Guest booking link
 
   // Episode feed config — switch source without rebuilding
@@ -21,6 +21,41 @@ export const siteConfig = {
 
   // Featured episodes — add new episodes at the top
   episodes: [
+    {
+      title: "Episode 11",
+      guest: "Justin Reynolds",
+      guestTitle: "Founder & Venture Builder",
+      guestCompany: "Tashinga Partnership",
+      url: "https://x.com/i/broadcasts/1AKEmOVqgvnKL",
+    },
+    {
+      title: "Episode 10",
+      guest: "Peter Micca",
+      guestTitle: "Managing Partner",
+      guestCompany: "Caduceus Capital Partners",
+      url: "https://youtu.be/VYSBwQBJfXM?si=pjbGntcYwtkam1pL",
+    },
+    {
+      title: "Episode 9",
+      guest: "Mark Francis",
+      guestTitle: "Founder",
+      guestCompany: "Preferred",
+      url: "https://x.com/i/broadcasts/1yKAPMvzBjaxb",
+    },
+    {
+      title: "Episode 8",
+      guest: "Matt Ober",
+      guestTitle: "Managing Partner",
+      guestCompany: "Social Leverage",
+      url: "https://x.com/i/broadcasts/1nJOLEdOQEkxR",
+    },
+    {
+      title: "Episode 7",
+      guest: "DaVinci Jeremie",
+      guestTitle: "Bitcoin Pioneer & Crypto Educator",
+      guestCompany: "",
+      url: "https://x.com/i/broadcasts/1PKqrEZDVgQGb",
+    },
     {
       title: "Episode 6",
       guest: "Tochi Chukwuemeka",
@@ -66,7 +101,7 @@ export const siteConfig = {
   ],
 
   blurb:
-    "The Superlative Podcast is a 20-30 minute live conversation hosted by Edward Buchi, co-founder of Sacred Protocol. Each episode features one guest from startups, media, sports, or finance\u2014a founder, investor, or operator with a real story and a point of view worth putting on record. No edits, no post-production. Streamed live to X, with YouTube publishing coming soon.",
+    "The Superlative Podcast is a 20-30 minute live conversation hosted by Edward Buchi, co-founder of Sacred Protocol. Each episode features one guest from startups, media, sports, or finance\u2014a founder, investor, or operator with a real story and a point of view worth putting on record. No edits, no post-production. Streamed live to X and YouTube.",
 
   verticals: [
     { title: "Startups", description: "Founders and builders shipping products" },
