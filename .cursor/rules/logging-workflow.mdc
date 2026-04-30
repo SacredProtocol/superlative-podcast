@@ -34,3 +34,16 @@ Present the following exactly — no extra commentary before or after:
 - Keep each field tight — one to three lines max
 - If multiple .mdc files were touched, list all of them under Files Changed
 - "Synthesis Candidate" means: does this session contain a pattern or decision worth promoting into a higher-level rule or permanent doc? Yes if it established something reusable. No if it was purely content updates.
+
+## Session-Close Trigger
+
+If the user says any phrase that signals the end of a session — including but not limited to:
+
+> "good session", "let's end the session", "that's enough for now", "we're done", "wrap it up", "let's stop here"
+
+— or any similar closing phrase, check whether the logging workflow has already been triggered this session.
+
+- If the log **has already been produced**: acknowledge the close normally.
+- If the log **has not been produced**: generate it immediately before closing. Never end a session on a closing phrase without confirming the log has been produced.
+
+This applies even if no `.cursor/rules/` file was modified — if the session involved meaningful work (code changes, data updates, design decisions), produce the log anyway with "Files Changed: none" and document what was done.
