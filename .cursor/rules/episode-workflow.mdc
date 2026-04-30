@@ -34,9 +34,17 @@ This is the exact workflow used in the April 2026 session to add episodes 7–11
 
 ### Step 1 — Get Episode List from Notion
 
-Query the **Episodes database** in Notion:
-- Database ID: `3344613294668035aa4dd29efc7b4696`
-- View ID: `view://33446132-9466-817e-934f-000c3651e323`
+The Notion MCP tools must be chained — you can't jump straight to a query. The sequence is:
+
+1. **`notion-fetch`** the Episodes database directly by ID:
+   - Database ID: `3344613294668035aa4dd29efc7b4696`
+   - This returns the database schema and a `<view url="view://...">` tag in the response
+
+2. **`notion-query-database-view`** using the view URL from step 1:
+   - View URL: `view://33446132-9466-817e-934f-000c3651e323`
+   - Returns all episode rows with their fields
+
+The `view://UUID` format is specific to the Notion MCP — it only appears after fetching the database. Don't try to construct it manually.
 
 Each row contains: `Episode` (number), `Guest`, `Firm or Company`, `Select` (status), `Email`, `Date`.
 
@@ -48,9 +56,11 @@ Status values:
 ### Step 2 — Get Guest Roles from Attio (if missing from Notion)
 
 If `Firm or Company` or job title is blank in Notion, search Attio CRM:
-- Search object: `people`
+- Search object: `people` (required — Attio searches are object-scoped)
 - Query: guest's full name
-- Look for `job_title` and `description` fields in the result
+- Check **both** `job_title` and `description` fields — `description` often has a richer LinkedIn-style bio with more accurate role info than `job_title`
+
+**You can search multiple guests in parallel** — fire all Attio searches in a single message rather than sequentially. For 3 missing guests, 3 simultaneous `search-records` calls is correct.
 
 ### Step 3 — Get YouTube Links
 

@@ -70,6 +70,25 @@ YouTube is preferred over X as the primary platform. This is intentional — You
 
 ---
 
+## Config Naming
+
+### `siteConfig.youtubeUrl` vs `ep.youtubeUrl` — two different things
+
+These look the same but are completely different:
+
+| Field | What it is |
+|-------|-----------|
+| `siteConfig.youtubeUrl` | The channel URL: `https://www.youtube.com/@TheSuperlativePodcast` — used in the hero, episodes header, and footer |
+| `ep.youtubeUrl` | A specific episode's YouTube video link: `https://www.youtube.com/watch?v=XXXX` |
+
+The footer YouTube link uses `siteConfig.youtubeUrl` and auto-disables (`pointer-events-none opacity-20`) if the value is empty. It was in this disabled state until the channel URL was added in April 2026.
+
+### `episodeFeed` config block
+
+`siteConfig.episodeFeed` is a separate config block in `config.ts` that controls an embedded X timeline or YouTube feed elsewhere on the page — it is **not** the episode listing. It has its own `source`, `xHandle`, and `youtubePlaylistId` fields. Don't confuse it with the `episodes` array.
+
+---
+
 ## Data Sourcing
 
 ### Notion Episodes DB vs Podcast Artifacts DB

@@ -140,6 +140,27 @@ className="inline-flex items-center gap-1.5 font-sans text-[10px] border border-
 
 Always include `touch-manipulation` on tap targets for mobile responsiveness.
 
+## Git Commit Format
+
+This project uses conventional commits. Always prefix with a type:
+
+| Prefix | Use for |
+|--------|---------|
+| `feat:` | New feature or content (new episode, new section) |
+| `fix:` | Bug fix |
+| `config:` | Config-only changes (booking link, URLs) |
+| `docs:` | Documentation only |
+
+Example from this project:
+```
+feat: add episodes 7-11, YouTube support, and remove Live on X badge
+```
+
+Always include the co-author trailer on AI-assisted commits:
+```
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
+```
+
 ## TypeScript
 
 Strict mode is on. Config values are inferred from `siteConfig` — no explicit interface needed unless the type is used across files. Optional fields use `?` (e.g. `xUrl?`, `youtubeUrl?`).
