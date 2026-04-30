@@ -1,5 +1,5 @@
 ---
-description: Standing instruction — generate a Notion log entry summary at the end of any session where a .cursor/rules/ file was created or updated.
+description: Standing instruction — at the end of any session where .cursor/rules/ files were created or updated, or when a session-close phrase is detected, automatically create a Notion log entry and confirm to the user.
 alwaysApply: true
 ---
 
@@ -7,33 +7,35 @@ alwaysApply: true
 
 ## Trigger
 
-At the end of **any session** where a `.cursor/rules/` file was created or updated, generate a Notion log entry summary unprompted, formatted and ready to copy.
+At the end of **any session** where a `.cursor/rules/` file was created or updated — or when a session-close phrase is detected (see below) — automatically create a log entry in Notion and confirm to the user. Do not just present the summary as text. Write it to Notion directly.
 
-## Output Format
+## Action: Create Notion Page
 
-Present the following exactly — no extra commentary before or after:
+Use the `notion-create-pages` tool with the following target:
+
+- **Data source ID:** `91942926-053f-42f3-babd-01222bb9c836`
+- **Parent type:** `data_source_id`
+- **Database:** Cursor Rules Log Entries (inside "Superlative Site: Cursor Rules Log")
+
+### Field mapping
+
+| Notion Property | Type | Value |
+|----------------|------|-------|
+| `Entry Title` | title | Short label, e.g. "Episode Listings Overhaul — April 29" |
+| `date:Date:start` | ISO-8601 date | Today's date, e.g. `"2026-04-29"` |
+| `date:Date:is_datetime` | integer | `0` |
+| `Files Changed` | text | Comma-separated list of .mdc files touched |
+| `Session Summary` | text | One to two sentences on what was accomplished |
+| `Process or Workflow Established` | text | Any repeatable pattern captured |
+| `Issues and Stumbles` | text | What went wrong or required iteration |
+| `How It Was Fixed` | text | The resolution and what it revealed |
+| `Synthesis Candidate` | checkbox | `"__YES__"` if reusable insight, `"__NO__"` if not |
+
+### After creating the page
+
+Confirm to the user with the Notion page URL and a one-line summary of what was logged. Do not present the full formatted entry as text — the Notion page is the record.
 
 ---
-
-**Entry Title:** [short label, e.g. "Episode Listings Overhaul — April 29"]
-**Date:** [today's date]
-**Files Changed:** [list the .mdc files touched this session]
-**Session Summary:** [one to two sentences on what was accomplished]
-**Process or Workflow Established:** [any repeatable pattern captured in the rules]
-**Issues and Stumbles:** [what went wrong or required iteration]
-**How It Was Fixed:** [the resolution and what it revealed]
-**Synthesis Candidate:** [Yes or No — and a one-line reason]
-
----
-
-## Rules
-
-- Present this at the end of the session, not when asked
-- Do not ask the user if they want it — just produce it
-- Use today's actual date, not a placeholder
-- Keep each field tight — one to three lines max
-- If multiple .mdc files were touched, list all of them under Files Changed
-- "Synthesis Candidate" means: does this session contain a pattern or decision worth promoting into a higher-level rule or permanent doc? Yes if it established something reusable. No if it was purely content updates.
 
 ## Session-Close Trigger
 
@@ -41,9 +43,19 @@ If the user says any phrase that signals the end of a session — including but 
 
 > "good session", "let's end the session", "that's enough for now", "we're done", "wrap it up", "let's stop here"
 
-— or any similar closing phrase, check whether the logging workflow has already been triggered this session.
+— or any similar closing phrase, check whether the logging workflow has already fired this session.
 
-- If the log **has already been produced**: acknowledge the close normally.
-- If the log **has not been produced**: generate it immediately before closing. Never end a session on a closing phrase without confirming the log has been produced.
+- If the Notion entry **has already been created**: acknowledge the close normally and share the page URL if not already shared.
+- If the Notion entry **has not been created**: create it immediately before closing. Never end a session on a closing phrase without the Notion entry being written.
 
-This applies even if no `.cursor/rules/` file was modified — if the session involved meaningful work (code changes, data updates, design decisions), produce the log anyway with "Files Changed: none" and document what was done.
+This applies even if no `.cursor/rules/` file was modified — if the session involved meaningful work (code changes, data updates, design decisions), create the entry anyway with `Files Changed: none` and document what was done.
+
+---
+
+## Rules
+
+- Always write to Notion directly — do not just present the summary as formatted text
+- Do not ask the user if they want it — just do it
+- Use today's actual date, not a placeholder
+- Keep each field tight — one to three lines max
+- "Synthesis Candidate" = `"__YES__"` if the session captured something reusable or non-obvious; `"__NO__"` if it was purely routine content updates
