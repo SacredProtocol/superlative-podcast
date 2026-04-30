@@ -73,7 +73,7 @@ function Hero() {
         </p>
 
         {/* CTAs */}
-        <div className="animate-fade-up delay-4 mt-8 sm:mt-10 flex justify-center">
+        <div className="animate-fade-up delay-4 mt-8 sm:mt-10 flex flex-col items-center gap-4">
           <a
             href={siteConfig.calendlyUrl}
             target="_blank"
@@ -83,6 +83,15 @@ function Hero() {
             <CalendarIcon size={16} />
             See How It Works
             <ArrowIcon size={14} />
+          </a>
+          <a
+            href={siteConfig.youtubeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-sans text-xs !text-[#ffffff]/60 hover:!text-[#ffffff] transition-colors duration-200"
+          >
+            <YouTubeIcon size={14} />
+            Watch on YouTube
           </a>
         </div>
       </div>
@@ -107,9 +116,20 @@ function Episodes() {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl tracking-tight">
             Episodes
           </h2>
-          <span className="font-sans text-xs sm:text-sm text-muted pb-1">
-            {total} episode{total !== 1 ? "s" : ""}
-          </span>
+          <div className="flex items-center gap-4 pb-1">
+            <a
+              href={siteConfig.youtubeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 font-sans text-xs text-muted hover:text-foreground transition-colors duration-200"
+            >
+              <YouTubeIcon size={12} />
+              Subscribe
+            </a>
+            <span className="font-sans text-xs sm:text-sm text-muted">
+              {total} episode{total !== 1 ? "s" : ""}
+            </span>
+          </div>
         </div>
 
         <div className="mt-2 h-px w-full bg-foreground" />

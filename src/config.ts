@@ -42,7 +42,7 @@ export const siteConfig = {
       guest: "Mark Francis",
       guestTitle: "Founder",
       guestCompany: "Preferred",
-      xUrl: "https://x.com/i/broadcasts/1yKAPMvzBjaxb",
+      xUrl: "https://x.com/i/broadcasts/1PKqrEZDVgQGb",
       youtubeUrl: "https://www.youtube.com/watch?v=UpphOFgNhh4",
     },
     {
@@ -57,7 +57,7 @@ export const siteConfig = {
       guest: "DaVinci Jeremie",
       guestTitle: "Bitcoin Pioneer & Crypto Educator",
       guestCompany: "",
-      xUrl: "https://x.com/i/broadcasts/1PKqrEZDVgQGb",
+      xUrl: "https://x.com/i/broadcasts/1yKAPMvzBjaxb",
     },
     {
       title: "Episode 6",
@@ -72,6 +72,7 @@ export const siteConfig = {
       guestTitle: "Co-Founder",
       guestCompany: "Loon",
       xUrl: "https://x.com/thespeakerlisan/status/2045140831976542240",
+      youtubeUrl: "https://www.youtube.com/watch?v=7JWEhgWm4M4",
     },
     {
       title: "Episode 4",
