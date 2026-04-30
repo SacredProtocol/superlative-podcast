@@ -1,0 +1,147 @@
+---
+description: Code conventions, naming patterns, CSS utilities, and component structure for the Superlative Podcast site.
+globs: ["src/**/*.tsx", "src/**/*.ts", "src/**/*.css"]
+alwaysApply: false
+---
+
+# Code Conventions
+
+## Component Structure
+
+All site sections live as **named function components** directly in `src/app/page.tsx`. There is no separate `components/` folder for page sections — keep it that way unless a component is genuinely reusable across pages.
+
+```
+page.tsx sections (in render order):
+  Hero → Episodes → About → GuestVerticals → CTABanner → Footer
+```
+
+Shared/reusable components go in `src/components/`. Currently:
+- `XPostEmbed.tsx` — client component for Twitter/X post embeds
+- `XTimelineEmbed.tsx` — client component for Twitter/X timeline embeds
+
+## Naming
+
+| Thing | Convention | Example |
+|-------|-----------|---------|
+| Page section functions | PascalCase | `function Episodes()` |
+| Inline SVG icon components | PascalCase + "Icon" suffix | `function XIcon(...)` |
+| CSS custom classes | kebab-case | `.section-px`, `.animate-fade-up` |
+| Config keys | camelCase | `xProfileUrl`, `youtubeUrl`, `guestTitle` |
+| File names | kebab-case | `XPostEmbed.tsx`, `globals.css` |
+
+## Tailwind CSS v4
+
+This project uses **Tailwind v4** (PostCSS plugin, not the traditional `tailwind.config.js`). Design tokens are defined in `globals.css` under `@theme inline {}`:
+
+```css
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-inverse-bg: #0a0a0a;
+  --color-inverse-fg: #ffffff;
+  --color-muted: #737373;
+  --color-border: #e5e5e5;
+  --font-sans: var(--font-geist);
+  --font-display: var(--font-special-gothic);
+}
+```
+
+Use these semantic tokens in Tailwind classes:
+- `bg-background` / `text-foreground` — light sections
+- `bg-inverse-bg` / `text-inverse-fg` — dark sections (Hero, CTABanner, Footer)
+- `text-muted` — secondary/caption text
+- `border-border` — standard border color
+- `font-sans` — body text (Geist)
+- `font-display` — headings (Special Gothic Expanded One, always uppercase)
+
+## Section Layout Pattern
+
+Every section follows this structure:
+
+```tsx
+<section className="bg-background text-foreground section-px section-py">
+  <div className="w-full max-w-2xl mx-auto">
+    {/* content */}
+  </div>
+</section>
+```
+
+- `.section-px` — responsive horizontal padding (1.5rem → 2.5rem → 4rem)
+- `.section-py` — responsive vertical padding (5rem → 6rem → 8rem)
+- Max content width is `max-w-2xl` (42rem) for most sections, `max-w-3xl` for Hero
+
+## Animation Classes
+
+Defined in `globals.css`. Use on entrance elements:
+
+| Class | Effect |
+|-------|--------|
+| `.animate-fade-up` | Fade in from below |
+| `.animate-fade-in` | Fade in (no movement) |
+| `.animate-slide-in-left` | Slide in from left |
+| `.delay-1` to `.delay-5` | Stagger delays (0.1s to 0.7s) |
+
+## Responsive Breakpoints
+
+Mobile-first. Breakpoints used:
+- `sm:` — 640px (tablet portrait)
+- `lg:` — 1024px (desktop)
+- `xl:` — 1280px (wide desktop)
+
+Pattern: `text-xs sm:text-sm`, `py-5 sm:py-7`, `hidden sm:block`
+
+## Inline SVG Icons
+
+All icons are defined at the top of `page.tsx` as small functional components with a `size` prop:
+
+```tsx
+function XIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+      {/* path */}
+    </svg>
+  );
+}
+```
+
+Icons in use: `XIcon`, `YouTubeIcon`, `CalendarIcon`, `ArrowIcon`, `PlayIcon`.
+
+To add a new icon: define it the same way at the top of the file, before the first section function.
+
+## Typography
+
+Headings (`h1`, `h2`, `h3`) use Special Gothic — set globally in `globals.css` — always `uppercase`, `letter-spacing: -0.02em`. Don't override these per-element unless necessary.
+
+Body and UI text use Geist via `font-sans`. Common patterns:
+```
+font-sans text-xs tracking-widest uppercase   → labels/badges
+font-sans text-sm text-muted                  → captions
+font-sans text-base font-medium               → list items
+font-sans text-[10px]                         → tiny metadata
+```
+
+## Fonts
+
+Loaded in `layout.tsx` via `next/font/google`:
+- `Geist` → CSS variable `--font-geist` → used as `font-sans`
+- `Special_Gothic_Expanded_One` (weight 400) → CSS variable `--font-special-gothic` → used as `font-display`
+
+## Buttons & Interactive Elements
+
+Primary button pattern:
+```tsx
+className="group inline-flex items-center gap-2.5 bg-white !text-[#000000] font-sans font-medium text-sm px-8 py-4 transition-all duration-300 hover:bg-white/90 active:scale-[0.97] touch-manipulation"
+```
+
+Platform pill badge pattern:
+```tsx
+className="inline-flex items-center gap-1.5 font-sans text-[10px] border border-border rounded-full px-2.5 py-1 text-muted hover:text-foreground hover:border-foreground transition-colors"
+```
+
+Always include `touch-manipulation` on tap targets for mobile responsiveness.
+
+## TypeScript
+
+Strict mode is on. Config values are inferred from `siteConfig` — no explicit interface needed unless the type is used across files. Optional fields use `?` (e.g. `xUrl?`, `youtubeUrl?`).
+
+Path alias: `@/*` maps to `src/*`. Use it for imports across directories.

@@ -1,0 +1,124 @@
+---
+description: Known gotchas, past bugs, and non-obvious decisions made during development. Read before making changes to episodes or the UI.
+alwaysApply: true
+---
+
+# Gotchas & Non-Obvious Decisions
+
+## Episode Config
+
+### `xUrl` / `youtubeUrl` — not `url`
+The episode config uses **two separate URL fields**, not a single `url`. This was refactored in April 2026 to support multi-platform listings.
+
+```typescript
+// WRONG — this field no longer exists
+{ url: "https://x.com/..." }
+
+// CORRECT
+{ xUrl: "https://x.com/...", youtubeUrl: "https://www.youtube.com/..." }
+```
+
+Omit the field entirely (don't set to `""`) if the link isn't available. The UI handles `undefined` gracefully.
+
+### Episode numbers are derived, not stored
+
+The display episode number is calculated from the array index:
+```tsx
+const epNum = String(total - i).padStart(2, "0");
+```
+
+Do **not** try to encode the episode number in the object or the render logic. Just keep the array in descending order (newest first).
+
+### `key` prop uses `ep.title`, not `ep.url`
+
+The map key was previously `ep.url`. After the refactor to `xUrl`/`youtubeUrl`, it was changed to `ep.title`. If you see a React key warning, check this first.
+
+---
+
+## UI / Component
+
+### `guestTitle` renders without `guestCompany`
+
+Early code required **both** `guestTitle` and `guestCompany` to render the subtitle line:
+```tsx
+// OLD — broken for guests with no company
+{ep.guestTitle && ep.guestCompany && (...)}
+
+// CURRENT — correct
+{ep.guestTitle && (
+  <span>
+    {ep.guestTitle}{ep.guestCompany && <> &middot; {ep.guestCompany}</>}
+  </span>
+)}
+```
+
+If you ever see a guest's title missing on the site, check this condition. `guestTitle` alone is sufficient; `guestCompany` is optional.
+
+### Episode row is a `div`, not an `<a>`
+
+The entire episode row used to be a single `<a>` tag. It was changed to a `<div>` when multi-platform links were added (you can't nest `<a>` inside `<a>`). The play button is now the `<a>` to the primary URL. Platform pill badges are separate `<a>` tags.
+
+Don't revert to wrapping the whole row in an anchor — it would break the pills.
+
+### Play button priority: YouTube first
+
+```tsx
+const primaryUrl = ep.youtubeUrl || ep.xUrl;
+```
+
+YouTube is preferred over X as the primary platform. This is intentional — YouTube is the more accessible platform for new listeners.
+
+---
+
+## Data Sourcing
+
+### Notion Episodes DB vs Podcast Artifacts DB
+
+Two separate Notion databases — don't confuse them:
+
+| Database | Purpose |
+|----------|---------|
+| **Episodes** (ID: `3344613294668035aa4dd29efc7b4696`) | Guest records, episode numbers, status, emails |
+| **Podcast Artifacts** (ID: `33346132946680cd836ec3d130e1e5cf`) | Promotion kits, content assets — X broadcast links are embedded in artifact page content |
+
+Guest roles often aren't in the Episodes DB — check Attio CRM (`people` object) if `Firm or Company` is blank.
+
+### YouTube channel has two tabs
+
+When sourcing YouTube links, check **both**:
+- `/videos` — uploaded recordings
+- `/streams` (Live tab) — archived livestreams
+
+Episodes recorded before YouTube streaming was active will only have X links. As of April 2026: Episodes 5, 6, 7, 8 are X-only.
+
+### YouTube video IDs live in `ytInitialData`
+
+The YouTube channel page embeds all video metadata in a JSON blob in the page HTML. To reliably extract video URLs, fetch the page and parse `ytInitialData` — don't try to scrape visible HTML elements.
+
+---
+
+## Design Decisions
+
+### "Live on X" badge was removed
+
+The hero section previously had a pulsing red "Live on X" badge. It was removed because the show now streams on both X and YouTube, and a permanent "live" badge was misleading when no episode is actively streaming.
+
+### DaVinci Jeremie has no `guestCompany`
+
+This is intentional. DaVinci's personal brand (Bitcoin OG, ~900K YouTube subscribers) is larger than any company he's associated with. Using a company name would undersell him. His `guestTitle` is `"Bitcoin Pioneer & Crypto Educator"` and `guestCompany` is `""`.
+
+Apply the same logic to any future guest where the person is bigger than the org.
+
+### YouTube channel link appears in three places
+
+1. Hero — subtle secondary link below the main CTA
+2. Episodes section header — "Subscribe" link with YouTube icon
+3. Footer — part of the social links nav
+
+This was deliberate — the channel was newly launched and needed visibility. Don't remove any of these without considering the user's goal of driving YouTube subscribers.
+
+---
+
+## Next.js Version Note
+
+This project runs **Next.js 16.2.2**, which has breaking changes from older versions. APIs, routing, and file conventions may differ from training data. Always check `node_modules/next/dist/docs/` before using Next.js-specific features.

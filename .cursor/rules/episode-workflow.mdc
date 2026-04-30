@@ -1,0 +1,144 @@
+---
+description: Exact workflow for adding or updating episodes on the website. Follow this whenever new episodes need to be added.
+globs: ["src/config.ts"]
+alwaysApply: false
+---
+
+# Episode Data Workflow
+
+## Episode Object Shape
+
+Every episode in `src/config.ts` uses this structure:
+
+```typescript
+{
+  title: "Episode N",        // "Episode 1" through "Episode N"
+  guest: "Full Name",        // Guest's full name
+  guestTitle: "Role",        // Job title or descriptor (see special cases below)
+  guestCompany: "Company",   // Company/fund name — can be empty string ""
+  xUrl?: string,             // X broadcast or post link (optional)
+  youtubeUrl?: string,       // YouTube video or livestream link (optional)
+}
+```
+
+- **Add new episodes at the top** of the `siteConfig.episodes` array
+- Episode numbers are **auto-calculated** from array position — never hardcode them in the title logic
+- At least one of `xUrl` or `youtubeUrl` should be present; having both shows two platform pills
+- Play button defaults to **YouTube first**, X as fallback: `ep.youtubeUrl || ep.xUrl`
+
+---
+
+## Step-by-Step Process for Adding New Episodes
+
+This is the exact workflow used in the April 2026 session to add episodes 7–11.
+
+### Step 1 — Get Episode List from Notion
+
+Query the **Episodes database** in Notion:
+- Database ID: `3344613294668035aa4dd29efc7b4696`
+- View ID: `view://33446132-9466-817e-934f-000c3651e323`
+
+Each row contains: `Episode` (number), `Guest`, `Firm or Company`, `Select` (status), `Email`, `Date`.
+
+Status values:
+- `Podcast Recorded` — episode is done, safe to add to site
+- `Podcast Episode Booked` — scheduled but not yet recorded
+- `Pre-Interview Done` — onboarding complete, not yet recorded
+
+### Step 2 — Get Guest Roles from Attio (if missing from Notion)
+
+If `Firm or Company` or job title is blank in Notion, search Attio CRM:
+- Search object: `people`
+- Query: guest's full name
+- Look for `job_title` and `description` fields in the result
+
+### Step 3 — Get YouTube Links
+
+Fetch both tabs of the YouTube channel:
+- **Videos tab:** `https://www.youtube.com/@TheSuperlativePodcast/videos`
+- **Live tab:** `https://www.youtube.com/@TheSuperlativePodcast/streams`
+
+Match episode titles to guest names. Extract `watch?v=` URLs from page HTML (`ytInitialData` JSON).
+
+Episodes only on YouTube will not have an `xUrl`. Episodes only on X will not have a `youtubeUrl`.
+
+### Step 4 — Get X Links
+
+X broadcast links are in the Notion **Podcast Artifacts** database or on the host's X profile (@thespeakerlisan). Format:
+- Broadcasts: `https://x.com/i/broadcasts/XXXXXX`
+- Posts: `https://x.com/thespeakerlisan/status/XXXXXXXXXX`
+
+### Step 5 — Write the Config Entry
+
+Add to the **top** of `siteConfig.episodes` in `src/config.ts`:
+
+```typescript
+{
+  title: "Episode 12",
+  guest: "Guest Name",
+  guestTitle: "Managing Partner",
+  guestCompany: "Fund Name",
+  xUrl: "https://x.com/i/broadcasts/XXXXXX",
+  youtubeUrl: "https://www.youtube.com/watch?v=XXXXXX",
+},
+```
+
+Leave out `xUrl` or `youtubeUrl` entirely (don't set to `""`) if that platform link isn't available yet.
+
+### Step 6 — Verify
+
+```bash
+npx tsc --noEmit
+```
+
+No output = no type errors. Then commit and push to `main`.
+
+---
+
+## Special Cases
+
+### Guest is bigger than their company
+
+If a guest's personal brand or reputation eclipses the company they're currently at, use `guestTitle` as a descriptor and leave `guestCompany` as `""`.
+
+**Example — DaVinci Jeremie:**
+```typescript
+{
+  guest: "DaVinci Jeremie",
+  guestTitle: "Bitcoin Pioneer & Crypto Educator",
+  guestCompany: "",   // intentionally blank
+  xUrl: "...",
+}
+```
+
+Don't list a startup or project name that would undersell who they are.
+
+### Guest with multiple roles
+
+Pack both into `guestTitle` when the company is the same umbrella:
+```typescript
+guestTitle: "Co-Founder, RaaSRocket & President",
+guestCompany: "Unocoin",
+```
+
+Or list the primary company and note the secondary in the title:
+```typescript
+guestTitle: "Co-Founder",
+guestCompany: "Loon",   // primary — Paytrie is secondary
+```
+
+### Link added later
+
+If an episode goes live on a second platform after initial publish, just add the missing field to the existing entry — no other changes needed.
+
+---
+
+## Notion Episode Database Reference
+
+- **Main page:** The Superlative Podcast → Episodes database
+- **Podcast Artifacts database** (ID: `33346132946680cd836ec3d130e1e5cf`) — contains per-episode promotion kits with X broadcast links embedded in the content
+- **Individual episode pages** — contain full guest profile, email, onboarding notes, and episode number
+
+## Current Episode Count
+
+As of April 2026: **11 episodes** (Episodes 1–11). Episodes 5, 6, 7, 8 are X-only. All others have YouTube links.

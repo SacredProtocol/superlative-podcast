@@ -1,0 +1,51 @@
+---
+description: Project overview for the Superlative Podcast website. Read this first in any new session.
+alwaysApply: true
+---
+
+# The Superlative Podcast — Project Overview
+
+## What This Is
+A minimal, content-driven podcast landing page for **The Superlative Podcast**, hosted by **Edward Buchi** (@thespeakerlisan), co-founder of Sacred Protocol. Episodes are 20–30 minute live conversations with founders, investors, and operators. No edits, no post-production. Streamed live to X and YouTube.
+
+## Stack
+- **Next.js 16.2.2** (App Router) — note: breaking changes from older Next.js versions. Read `node_modules/next/dist/docs/` before touching framework-level code.
+- **React 19.2.4**
+- **Tailwind CSS v4** (PostCSS plugin, not the v3 config file approach)
+- **TypeScript 5** (strict mode)
+
+## Key Files
+| File | Purpose |
+|------|---------|
+| `src/config.ts` | Single source of truth — all episodes, site links, host info |
+| `src/app/page.tsx` | Entire site — all 6 sections as inline functions |
+| `src/app/layout.tsx` | Fonts (Geist + Special Gothic), metadata, OG image |
+| `src/app/globals.css` | Design tokens, animations, section spacing utilities |
+| `src/components/XPostEmbed.tsx` | Twitter/X post embed (client component) |
+| `src/components/XTimelineEmbed.tsx` | Twitter/X timeline embed (client component) |
+| `public/og-image.png` | Open Graph image for link previews |
+| `public/favicon.png` | TSP branded favicon |
+
+## Site Sections (in order)
+1. **Hero** — Full-height, animated title + tagline + CTAs (booking + YouTube)
+2. **Episodes** — Full episode list with platform pill badges (X / YouTube)
+3. **About** — Blurb, follow button, format descriptor
+4. **GuestVerticals** — 4-column grid (Startups, Media, Sports, Finance)
+5. **CTABanner** — Guest booking call-to-action
+6. **Footer** — Copyright, social links (X, YouTube, booking)
+
+## External Accounts
+- **X profile:** https://x.com/thespeakerlisan
+- **YouTube channel:** https://www.youtube.com/@TheSuperlativePodcast
+- **Booking link:** https://cal.com/smsp-schedhuler/pdon30
+
+## Data Sources (for episode information)
+- **Notion** — Episodes database, Podcast Artifacts, guest onboarding transcripts
+- **Attio CRM** — Guest job titles, contact details
+- **YouTube channel** — Video and livestream links (Videos tab + Live tab)
+- **X broadcasts** — Broadcast links for episodes streamed on X
+
+## Deployment
+- Git remote: `https://github.com/SacredProtocol/superlative-podcast.git`
+- Branch: `main`
+- Run `npx tsc --noEmit` before pushing to verify type safety
