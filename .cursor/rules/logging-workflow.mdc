@@ -1,0 +1,36 @@
+---
+description: Standing instruction — generate a Notion log entry summary at the end of any session where a .cursor/rules/ file was created or updated.
+alwaysApply: true
+---
+
+# Logging Workflow
+
+## Trigger
+
+At the end of **any session** where a `.cursor/rules/` file was created or updated, generate a Notion log entry summary unprompted, formatted and ready to copy.
+
+## Output Format
+
+Present the following exactly — no extra commentary before or after:
+
+---
+
+**Entry Title:** [short label, e.g. "Episode Listings Overhaul — April 29"]
+**Date:** [today's date]
+**Files Changed:** [list the .mdc files touched this session]
+**Session Summary:** [one to two sentences on what was accomplished]
+**Process or Workflow Established:** [any repeatable pattern captured in the rules]
+**Issues and Stumbles:** [what went wrong or required iteration]
+**How It Was Fixed:** [the resolution and what it revealed]
+**Synthesis Candidate:** [Yes or No — and a one-line reason]
+
+---
+
+## Rules
+
+- Present this at the end of the session, not when asked
+- Do not ask the user if they want it — just produce it
+- Use today's actual date, not a placeholder
+- Keep each field tight — one to three lines max
+- If multiple .mdc files were touched, list all of them under Files Changed
+- "Synthesis Candidate" means: does this session contain a pattern or decision worth promoting into a higher-level rule or permanent doc? Yes if it established something reusable. No if it was purely content updates.
