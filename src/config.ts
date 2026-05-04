@@ -23,6 +23,14 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 12",
+      guest: "Emily Kegels",
+      guestTitle: "Partner",
+      guestCompany: "PitchDrive VC",
+      xUrl: "https://x.com/thespeakerlisan/status/2051294075001975085",
+      youtubeUrl: "https://www.youtube.com/live/zeJbxqsBUcs?si=KcdDRcvd6Ya7iJRm",
+    },
+    {
       title: "Episode 11",
       guest: "Justin Reynolds",
       guestTitle: "Founder & Venture Builder",
