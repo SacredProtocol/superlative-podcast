@@ -23,6 +23,22 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 14",
+      guest: "Justin Oberman",
+      guestTitle: "Founder",
+      guestCompany: "Oberman Partners",
+      xUrl: "https://x.com/i/broadcasts/1lJQRvyVPNMxE",
+      youtubeUrl: "https://www.youtube.com/live/VXm3utlnql4?si=6VwPBb_8X9EyTP8s",
+    },
+    {
+      title: "Episode 13",
+      guest: "Jay Yarlagadda",
+      guestTitle: "General Partner",
+      guestCompany: "Atoms VC",
+      xUrl: "https://x.com/i/broadcasts/1dGYljOWZXlKX",
+      youtubeUrl: "https://www.youtube.com/live/rWPPVG51iDQ?si=TcFKYu9_4RRxBXvb",
+    },
+    {
       title: "Episode 12",
       guest: "Emily Kegels",
       guestTitle: "Partner",
