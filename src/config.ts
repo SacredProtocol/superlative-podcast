@@ -27,7 +27,7 @@ export const siteConfig = {
       episodeTitle: "The Comma Is Where the Story Turns",
       guest: "Ashley Heron",
       guestTitle: "Founder",
-      guestCompany: "Comma Eight",
+      guestCompany: "Comma8",
       youtubeUrl: "https://youtube.com/live/accgqB3TOc0",
     },
     {
