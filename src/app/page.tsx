@@ -165,12 +165,15 @@ function Episodes() {
                   <span className="font-sans text-[10px] sm:text-xs text-muted uppercase tracking-[0.15em] mb-0.5">
                     {ep.title}
                   </span>
-                  <span className="font-sans text-base sm:text-lg font-medium leading-snug truncate">
-                    {ep.guest ?? ep.title}
+                  <span className="font-sans text-base sm:text-lg font-medium leading-snug text-balance">
+                    {ep.episodeTitle ?? ep.guest ?? ep.title}
                   </span>
-                  {ep.guestTitle && (
+                  {(ep.episodeTitle ? ep.guest : ep.guestTitle) && (
                     <span className="font-sans text-[11px] sm:text-xs text-muted">
-                      {ep.guestTitle}{ep.guestCompany && <> &middot; {ep.guestCompany}</>}
+                      {ep.episodeTitle
+                        ? <><span className="font-black text-black">{ep.guest}</span>{ep.guestTitle && <> &middot; {ep.guestTitle}</>}{ep.guestCompany && <> &middot; {ep.guestCompany}</>}</>
+                        : <>{ep.guestTitle}{ep.guestCompany && <> &middot; {ep.guestCompany}</>}</>
+                      }
                     </span>
                   )}
                   <div className="flex gap-2 mt-2 flex-wrap">

@@ -23,7 +23,40 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 18",
+      episodeTitle: "The Comma Is Where the Story Turns",
+      guest: "Ashley Heron",
+      guestTitle: "Founder",
+      guestCompany: "Comma Eight",
+      youtubeUrl: "https://youtube.com/live/accgqB3TOc0",
+    },
+    {
+      title: "Episode 17",
+      episodeTitle: "The Capital Formation Game Has Changed – Most VCs Still Don't Get It",
+      guest: "Andrew Romans",
+      guestTitle: "Managing Partner",
+      guestCompany: "7BC Venture Capital",
+      youtubeUrl: "https://youtube.com/live/aJ4cIgAtvGU",
+    },
+    {
+      title: "Episode 16",
+      episodeTitle: "It's Usually Not Money. It's Connections and Broken Barriers.",
+      guest: "Daniela Pacheco",
+      guestTitle: "Partner",
+      guestCompany: "NVGroup",
+      youtubeUrl: "https://youtube.com/live/lNAsH1evEcU",
+    },
+    {
+      title: "Episode 15",
+      episodeTitle: "AI Is Being Locked Down Like the Atomic Bomb, the Hidden Danger of This Policy",
+      guest: "Lindley Lentati",
+      guestTitle: "Founder",
+      guestCompany: "Cambridge Inference",
+      youtubeUrl: "https://youtube.com/live/0mRzdim0T4I",
+    },
+    {
       title: "Episode 14",
+      episodeTitle: "You Don't Get to Decide What Your Brand Is",
       guest: "Justin Oberman",
       guestTitle: "Founder",
       guestCompany: "Oberman Partners",
@@ -32,6 +65,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 13",
+      episodeTitle: "Coastal VCs Haven't Looked Here. That's the Entire Thesis.",
       guest: "Jay Yarlagadda",
       guestTitle: "General Partner",
       guestCompany: "Atoms VC",
@@ -40,6 +74,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 12",
+      episodeTitle: "After Watching Businesses Fail, She Ended Up Operating a VC Fund",
       guest: "Emily Kegels",
       guestTitle: "Partner",
       guestCompany: "PitchDrive VC",
@@ -48,6 +83,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 11",
+      episodeTitle: "The VC Model Was Designed to Make 95% of Founders Fail",
       guest: "Justin Reynolds",
       guestTitle: "Founder & Venture Builder",
       guestCompany: "Tashinga Partnership",
@@ -56,6 +92,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 10",
+      episodeTitle: "He Turned Down a Google Acquisition. The Company Outperformed the Exit.",
       guest: "Peter Micca",
       guestTitle: "Managing Partner",
       guestCompany: "Caduceus Capital Partners",
@@ -63,6 +100,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 9",
+      episodeTitle: "He Convinced a DeFi Protocol to Lend to Small Businesses",
       guest: "Mark Francis",
       guestTitle: "Founder",
       guestCompany: "Preferred",
@@ -71,6 +109,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 8",
+      episodeTitle: "He Left a $20B Hedge Fund to Back the Infrastructure Everyone Else Ignored",
       guest: "Matt Ober",
       guestTitle: "Managing Partner",
       guestCompany: "Social Leverage",
@@ -78,6 +117,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 7",
+      episodeTitle: "Bought Bitcoin at $1. Nobody Listened.",
       guest: "DaVinci Jeremie",
       guestTitle: "Bitcoin Pioneer & Crypto Educator",
       guestCompany: "",
@@ -85,6 +125,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 6",
+      episodeTitle: "You Need Money to Receive Money. That's the Whole Problem.",
       guest: "Tochi Chukwuemeka",
       guestTitle: "Co-Founder",
       guestCompany: "PajCash",
@@ -92,6 +133,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 5",
+      episodeTitle: "Canada Is Exporting Its Dollar Abroad and He's Building the Fix",
       guest: "Kevin Zhang",
       guestTitle: "Co-Founder",
       guestCompany: "Loon",
@@ -100,6 +142,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 4",
+      episodeTitle: "He Flew to Bangalore for a Bitcoin Meetup and Built India's Biggest Exchange",
       guest: "Sunny Ray",
       guestTitle: "Co-Founder, RaaSRocket & President",
       guestCompany: "Unocoin",
@@ -108,6 +151,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 3",
+      episodeTitle: "16 Years Watching Investors Walk In. Then He Became One.",
       guest: "Varun Turlapati",
       guestTitle: "Managing Director",
       guestCompany: "Chaanakya Capital",
@@ -116,6 +160,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 2",
+      episodeTitle: "She Built a Factory at 19 with Just a Bank Loan and a Network She Earned",
       guest: "Yangchen Sharma",
       guestTitle: "General Partner",
       guestCompany: "Roundtable Ventures",
@@ -124,6 +169,7 @@ export const siteConfig = {
     },
     {
       title: "Episode 1",
+      episodeTitle: "From Operating Companies to Growing Families, Creating Systems Is Key",
       guest: "Charles Cormier",
       guestTitle: "CEO",
       guestCompany: "RaaSRocket",
