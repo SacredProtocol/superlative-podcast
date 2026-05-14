@@ -27,7 +27,7 @@ export const siteConfig = {
       episodeTitle: "The Last 5% Breaks Everything, an Introspective of the Drone Industry",
       guest: "Vadim Tarasov",
       guestTitle: "Managing Partner",
-      guestCompany: "AAS Fund",
+      guestCompany: "AAS Fund & UAVOS",
       youtubeUrl: "https://www.youtube.com/live/hd5SVjxTE34?si=slELN3M5m7ZNDnva",
     },
     {
