@@ -23,6 +23,22 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 20",
+      episodeTitle: "The Last 5% Breaks Everything, an Introspective of the Drone Industry",
+      guest: "Vadim Tarasov",
+      guestTitle: "Managing Partner",
+      guestCompany: "AAS Fund",
+      youtubeUrl: "https://www.youtube.com/live/hd5SVjxTE34?si=slELN3M5m7ZNDnva",
+    },
+    {
+      title: "Episode 19",
+      episodeTitle: "The Tetrad, Machine and What the Medium Is Doing to Us Now",
+      guest: "Andrew McLuhan",
+      guestTitle: "Founder",
+      guestCompany: "The McLuhan Institute",
+      youtubeUrl: "https://www.youtube.com/live/dQVk8XGIyxs?si=khF2EeUKoPGuYlOo",
+    },
+    {
       title: "Episode 18",
       episodeTitle: "The Comma Is Where the Story Turns",
       guest: "Ashley Heron",
