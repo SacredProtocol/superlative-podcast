@@ -68,9 +68,12 @@ Match YouTube videos to Notion episodes by checking whether the guest's **first 
 ## Workflow for adding new episodes
 
 1. Get episode numbers from the user (YouTube URLs optional — auto-fetched).
-2. Run `notion-query-database-view` on the view URL to fetch all episode properties.
-3. For each episode without a user-supplied URL, hit the YouTube API and match by guest name.
-4. For each episode, resolve `guestTitle` via Attio → Notion page → user.
-5. Build the config entry using the field mapping above.
-6. Insert at the **top** of the `episodes` array in `src/config.ts`.
-7. Commit and push to main.
+2. **Duplicate check:** read `src/config.ts` and skip any episode numbers already present.
+3. Run `notion-query-database-view` on the view URL to fetch all episode properties.
+4. For each episode without a user-supplied URL, hit the YouTube API and match by guest name.
+5. For each episode, resolve `guestTitle` via Attio → Notion page → user.
+6. Build the config entry using the field mapping above.
+7. **Preview table:** print all entries (with sources for `guestTitle` and `youtubeUrl`) and confirm before writing.
+8. Insert at the **top** of the `episodes` array in `src/config.ts`.
+9. **Typecheck:** run `npx tsc --noEmit` to verify the config compiles.
+10. Commit and push to main.

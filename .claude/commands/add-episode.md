@@ -16,6 +16,14 @@ Extract episode numbers and any YouTube/X URLs from $ARGUMENTS. Episode numbers 
 
 YouTube URLs are **optional** — if not provided, Step 3 will auto-fetch them from the channel. If the user explicitly pastes a URL for an episode, prefer the provided one over the auto-fetched one.
 
+## Step 1.5 — Duplicate check
+
+Read `src/config.ts` and scan `siteConfig.episodes` for any `title` matching the requested episode numbers (format `"Episode N"`).
+
+- If **every** requested episode already exists: tell the user and stop — there is nothing to add.
+- If **some** already exist: report which numbers are already present and ask whether to skip them or overwrite. Default to skipping.
+- If **none** exist: continue.
+
 ## Step 2 — Fetch episode data from Notion
 
 Query the Notion Episodes database view to get all episode properties at once:
@@ -70,13 +78,29 @@ For each episode, construct the config object using this mapping:
 **episodeTitle stripping rule:** Split the Notion title on ` – ` and take only the first part.
 - `"Coastal VCs Haven't Looked Here. – Jay Yarlagadda, Atoms VC"` → `"Coastal VCs Haven't Looked Here."`
 
-## Step 6 — Update src/config.ts
+## Step 6 — Preview and confirm
+
+Before writing anything, print a table of the entries about to be added, one row per episode, with these columns:
+
+| # | Guest | Episode Title | Guest Title (src) | Company | YouTube URL (src) |
+
+For each non-obvious field, append the **source** in parentheses:
+- `guestTitle`: `(attio)`, `(notion)`, `(linkedin)`, `(inferred)`, or `(user)`
+- `youtubeUrl`: `(api)` or `(user)`
+
+Ask the user to confirm before continuing. If they request changes, apply them and re-print the table.
+
+## Step 7 — Update src/config.ts
 
 - Read `src/config.ts`.
 - Insert all new episode objects at the **top** of the `episodes` array (after the opening `[`), newest episode first.
 - Do not modify any existing episodes.
 
-## Step 7 — Commit and push
+## Step 7.5 — Typecheck
+
+Run `npx tsc --noEmit` to verify `src/config.ts` still compiles. If it errors, fix the issue before continuing. Do not commit a broken config.
+
+## Step 8 — Commit and push
 
 Stage only `src/config.ts`, commit with a message in the format:
 
@@ -86,6 +110,6 @@ feat: add Episode(s) N[, M] (Guest Name[, Guest Name])
 
 Then push to `origin main`.
 
-## Step 8 — Confirm
+## Step 9 — Confirm
 
 Report the episodes added, their titles, the YouTube URLs (and whether each was auto-fetched or user-supplied), and confirm the push succeeded.
