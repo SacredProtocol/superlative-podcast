@@ -23,6 +23,30 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 23",
+      episodeTitle: "AI Killed the Startups It Was Supposed to Help",
+      guest: "Susana Espinosa de los Reyes",
+      guestTitle: "Partner",
+      guestCompany: "Dux Capital",
+      youtubeUrl: "https://www.youtube.com/live/NfNbhh_bM5E?si=z_cFtUmJY7-4IG5T",
+    },
+    {
+      title: "Episode 22",
+      episodeTitle: "The World's Biggest Asset Has No Tech Yet",
+      guest: "Carlos Rousseau",
+      guestTitle: "Managing Partner",
+      guestCompany: "Second Century Ventures",
+      youtubeUrl: "https://www.youtube.com/live/kQtoGvSX8X8?si=4k2pVOWsFSh6CfSX",
+    },
+    {
+      title: "Episode 21",
+      episodeTitle: "YouTube Can't Fix a Gas Leak",
+      guest: "Julian Scadden",
+      guestTitle: "President & CEO",
+      guestCompany: "Nexstar Network",
+      youtubeUrl: "https://www.youtube.com/live/2mob1KF3PD0?si=MzaFFW0_GNVQrPIA",
+    },
+    {
       title: "Episode 20",
       episodeTitle: "The Last 5% Breaks Everything, an Introspective of the Drone Industry",
       guest: "Vadim Tarasov",
