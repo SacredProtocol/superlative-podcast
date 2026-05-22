@@ -41,10 +41,10 @@ All episode data is in `src/config.ts` inside the `siteConfig.episodes` array. E
 | `Episode`              | `title`           | Format as `"Episode N"`                            |
 | `Podcast Episode Title`| `episodeTitle`    | Strip ` – Guest Name[, Company]` suffix from end   |
 | `Guest`                | `guest`           |                                                    |
-| `Firm or Company`      | `guestCompany`    |                                                    |
-| *(not in Notion)*      | `guestTitle`      | Ask the user or look up from the episode page      |
-| *(provided by user)*   | `youtubeUrl`      | YouTube live URL supplied separately               |
-| *(provided by user)*   | `xUrl`            | X broadcast URL supplied separately               |
+| `Firm or Company`      | `guestCompany`    | Drop trailing parentheticals like `" (SCV.VC)"`    |
+| *(not in Notion)*      | `guestTitle`      | Attio `people.job_title` → Notion page → user      |
+| *(YouTube API)*        | `youtubeUrl`      | Auto-fetched by guest name match; user can override|
+| *(provided by user)*   | `xUrl`            | X broadcast URL supplied separately                |
 
 ## episodeTitle convention
 
@@ -53,11 +53,24 @@ Strip the guest name (and company if present) from the end of the Notion title. 
 - `"Coastal VCs Haven't Looked Here. That's the Entire Thesis. – Jay Yarlagadda, Atoms VC"` → `"Coastal VCs Haven't Looked Here. That's the Entire Thesis."`
 - `"The Comma Is Where the Story Turns – Ashley Heron"` → `"The Comma Is Where the Story Turns"`
 
+## YouTube auto-fetch
+
+The channel uploads playlist is `UUo1EsiwgfAUlI3_hxudO3EA` (channel ID `UCo1EsiwgfAUlI3_hxudO3EA`, `@TheSuperlativePodcast`). The YouTube Data API v3 key is in `.env.local` as `YOUTUBE_API_KEY` (gitignored).
+
+Match YouTube videos to Notion episodes by checking whether the guest's **first and last name tokens** both appear in the video's `snippet.title` (case-insensitive). Build the URL as `https://www.youtube.com/live/<videoId>`. If no match is found, ask the user — never guess.
+
+## guestTitle lookup order
+
+1. **Attio** `people` object — `search-records` by guest name, use `job_title` if present. Normalize `"President, CEO"` → `"President & CEO"`.
+2. **Notion episode page** — fetch the individual page and check the prep notes for an explicit title.
+3. **Ask the user.**
+
 ## Workflow for adding new episodes
 
-1. Get episode numbers and YouTube/X URLs from the user.
+1. Get episode numbers from the user (YouTube URLs optional — auto-fetched).
 2. Run `notion-query-database-view` on the view URL to fetch all episode properties.
-3. Find the matching episodes by `Episode` number.
-4. Build the config entry using the field mapping above.
-5. Insert at the **top** of the `episodes` array in `src/config.ts`.
-6. Commit and push to main.
+3. For each episode without a user-supplied URL, hit the YouTube API and match by guest name.
+4. For each episode, resolve `guestTitle` via Attio → Notion page → user.
+5. Build the config entry using the field mapping above.
+6. Insert at the **top** of the `episodes` array in `src/config.ts`.
+7. Commit and push to main.
