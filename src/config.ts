@@ -23,6 +23,14 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 26",
+      episodeTitle: "The AI Layer Deciding Your Brand's Fate",
+      guest: "Caleb Pedosiuk",
+      guestTitle: "Creative Director & CEO",
+      guestCompany: "79 Development",
+      youtubeUrl: "https://www.youtube.com/live/hbptJH2NEI8",
+    },
+    {
       title: "Episode 25",
       episodeTitle: "Genetics Is the Breakthrough Nobody's Ready For",
       guest: "Jonah Probell",
