@@ -23,6 +23,22 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 25",
+      episodeTitle: "Genetics Is the Breakthrough Nobody's Ready For",
+      guest: "Jonah Probell",
+      guestTitle: "Managing Partner",
+      guestCompany: "Lexi Ventures",
+      youtubeUrl: "https://www.youtube.com/live/8BnbvEi48Ns",
+    },
+    {
+      title: "Episode 24",
+      episodeTitle: "He Stopped Pitching and Started Broadcasting",
+      guest: "Rudi Adigbli",
+      guestTitle: "Founder",
+      guestCompany: "ReeWire Ventures",
+      youtubeUrl: "https://www.youtube.com/live/MmBqf22JEcM",
+    },
+    {
       title: "Episode 23",
       episodeTitle: "AI Killed the Startups It Was Supposed to Help",
       guest: "Susana Espinosa de los Reyes",
