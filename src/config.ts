@@ -23,6 +23,30 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 29",
+      episodeTitle: "Faith Is a Due Diligence Filter",
+      guest: "Sebastian Harris",
+      guestTitle: "Founder & Managing Partner",
+      guestCompany: "Sandbox Fund",
+      youtubeUrl: "https://www.youtube.com/live/4HFr7VQ_zwk",
+    },
+    {
+      title: "Episode 28",
+      episodeTitle: "Compute Is About to Get Absurdly Cheap & Efficient",
+      guest: "Craig Taggart",
+      guestTitle: "Venture Partner",
+      guestCompany: "Qubits Ventures",
+      youtubeUrl: "https://www.youtube.com/live/meHYE_KWF0Q",
+    },
+    {
+      title: "Episode 27",
+      episodeTitle: "Everyone Is Chasing Longevity. She Says They're Wrong.",
+      guest: "Mansi Aggarwal",
+      guestTitle: "Founding Partner",
+      guestCompany: "Alkemi Growth Capital",
+      youtubeUrl: "https://www.youtube.com/live/lYYbDRyb9_M",
+    },
+    {
       title: "Episode 26",
       episodeTitle: "The AI Layer Deciding Your Brand's Fate",
       guest: "Caleb Pedosiuk",
