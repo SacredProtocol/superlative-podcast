@@ -23,6 +23,14 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 30",
+      episodeTitle: "Automated Farms Don't Need Farmers",
+      guest: "Peter Dorfner",
+      guestTitle: "Founding Principal",
+      guestCompany: "Green Generation Fund",
+      youtubeUrl: "https://www.youtube.com/live/DB29XMHL95M",
+    },
+    {
       title: "Episode 29",
       episodeTitle: "Faith Is a Due Diligence Filter",
       guest: "Sebastian Harris",
