@@ -18,6 +18,9 @@ A minimal, content-driven podcast landing page for **The Superlative Podcast**, 
 | File | Purpose |
 |------|---------|
 | `src/config.ts` | Single source of truth — all episodes, site links, host info |
+| `AGENTS.md` | Canonical episode publish workflow (Notion, YouTube, auto-detect) |
+| `.cursor/skills/add-episode/SKILL.md` | Cursor skill — triggers on "new podcast" / episode publish |
+| `scripts/preview-episode.mjs` | Read-only preview: config diff + YouTube upload detection |
 | `src/app/page.tsx` | Entire site — all 6 sections as inline functions |
 | `src/app/layout.tsx` | Fonts (Geist + Special Gothic), metadata, OG image |
 | `src/app/globals.css` | Design tokens, animations, section spacing utilities |
