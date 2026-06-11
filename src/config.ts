@@ -23,6 +23,14 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 31",
+      episodeTitle: "Demand Is God",
+      guest: "Brent Vartan",
+      guestTitle: "Managing Partner",
+      guestCompany: "Bullish",
+      youtubeUrl: "https://www.youtube.com/live/JLBxRxReEuI",
+    },
+    {
       title: "Episode 30",
       episodeTitle: "Automated Farms Don't Need Farmers",
       guest: "Peter Dorfner",
