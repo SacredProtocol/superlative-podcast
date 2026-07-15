@@ -23,6 +23,38 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 42",
+      episodeTitle: "Europe's VCs Are Spreadsheet Warriors",
+      guest: "Thijn van Helvoirt",
+      guestTitle: "Partner",
+      guestCompany: "No Such Ventures",
+      youtubeUrl: "https://www.youtube.com/live/abUPXElBmbo",
+    },
+    {
+      title: "Episode 41",
+      episodeTitle: "AI Lets You Ruin First Impressions 10x Faster",
+      guest: "Brian Crew",
+      guestTitle: "Founder & Principal",
+      guestCompany: "BricConsulting",
+      youtubeUrl: "https://www.youtube.com/live/s3w-s2ggb-k",
+    },
+    {
+      title: "Episode 40",
+      episodeTitle: "Buyers Need Human Connection, Not More Information",
+      guest: "Braydan Young",
+      guestTitle: "Co-Founder & CEO",
+      guestCompany: "SlashExperts",
+      youtubeUrl: "https://www.youtube.com/live/zYZ89GLC1zQ",
+    },
+    {
+      title: "Episode 39",
+      episodeTitle: "Doctors Spend 70% of Their Time Not Being Doctors",
+      guest: "James Bates",
+      guestTitle: "Founder, President & CEO",
+      guestCompany: "AdviNOW Medical",
+      youtubeUrl: "https://www.youtube.com/live/jGzCTNyE_54",
+    },
+    {
       title: "Episode 38",
       episodeTitle: "Business Is Playing the Wrong Game",
       guest: "Peter Harris",
