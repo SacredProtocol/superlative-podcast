@@ -107,6 +107,20 @@ function Hero() {
 
 /* ═══ 2. Episodes ═════════════════════════════════════════════════ */
 
+function CompanyName({ company, website }: { company: string; website?: string }) {
+  if (!website) return <>{company}</>;
+  return (
+    <a
+      href={website}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline decoration-dotted underline-offset-2 transition-colors hover:!text-white hover:font-medium hover:bg-foreground hover:decoration-transparent hover:rounded-sm hover:px-1 hover:-mx-1"
+    >
+      {company}
+    </a>
+  );
+}
+
 function Episodes() {
   const total = siteConfig.episodes.length;
   return (
@@ -171,8 +185,8 @@ function Episodes() {
                   {(ep.episodeTitle ? ep.guest : ep.guestTitle) && (
                     <span className="font-sans text-[11px] sm:text-xs text-muted">
                       {ep.episodeTitle
-                        ? <><span className="font-black text-black">{ep.guest}</span>{ep.guestTitle && <> &middot; {ep.guestTitle}</>}{ep.guestCompany && <> &middot; {ep.guestCompany}</>}</>
-                        : <>{ep.guestTitle}{ep.guestCompany && <> &middot; {ep.guestCompany}</>}</>
+                        ? <><span className="font-black text-black">{ep.guest}</span>{ep.guestTitle && <> &middot; {ep.guestTitle}</>}{ep.guestCompany && <> &middot; <CompanyName company={ep.guestCompany} website={ep.guestWebsite} /></>}</>
+                        : <>{ep.guestTitle}{ep.guestCompany && <> &middot; <CompanyName company={ep.guestCompany} website={ep.guestWebsite} /></>}</>
                       }
                     </span>
                   )}

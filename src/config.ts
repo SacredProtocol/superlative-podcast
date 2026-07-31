@@ -28,6 +28,7 @@ export const siteConfig = {
       guest: "Maxim Atanassov",
       guestTitle: "Founder",
       guestCompany: "Future Ventures",
+      guestWebsite: "https://futureventures.ca",
       youtubeUrl: "https://www.youtube.com/live/jt2LtrDIDeE",
     },
     {
@@ -36,6 +37,7 @@ export const siteConfig = {
       guest: "Jonathan D. Fox",
       guestTitle: "Founder & Managing Partner",
       guestCompany: "Z2 Value Creation",
+      guestWebsite: "https://z2vc.com",
       youtubeUrl: "https://www.youtube.com/live/AS8ldJfUXh4",
     },
     {
@@ -44,6 +46,7 @@ export const siteConfig = {
       guest: "Mark Barbir",
       guestTitle: "Co-Founder & CEO",
       guestCompany: "Earmark",
+      guestWebsite: "https://tryearmark.com",
       youtubeUrl: "https://www.youtube.com/live/xxDSYD_mEoU",
     },
     {
@@ -52,6 +55,7 @@ export const siteConfig = {
       guest: "Vaibhavi Nesarikar",
       guestTitle: "Principal",
       guestCompany: "GTMfund",
+      guestWebsite: "https://gtmfund.com",
       youtubeUrl: "https://www.youtube.com/live/2BZ8i4Bp2ZY",
     },
     {
@@ -60,6 +64,7 @@ export const siteConfig = {
       guest: "Thijn van Helvoirt",
       guestTitle: "Partner",
       guestCompany: "No Such Ventures",
+      guestWebsite: "https://nosuchventures.com",
       youtubeUrl: "https://www.youtube.com/live/abUPXElBmbo",
     },
     {
@@ -68,6 +73,7 @@ export const siteConfig = {
       guest: "Brian Crew",
       guestTitle: "Founder & Principal",
       guestCompany: "BricConsulting",
+      guestWebsite: "https://www.linkedin.com/company/bricconsulting/",
       youtubeUrl: "https://www.youtube.com/live/s3w-s2ggb-k",
     },
     {
@@ -76,6 +82,7 @@ export const siteConfig = {
       guest: "Braydan Young",
       guestTitle: "Co-Founder & CEO",
       guestCompany: "SlashExperts",
+      guestWebsite: "https://slashexperts.com",
       youtubeUrl: "https://www.youtube.com/live/zYZ89GLC1zQ",
     },
     {
@@ -84,6 +91,7 @@ export const siteConfig = {
       guest: "James Bates",
       guestTitle: "Founder, President & CEO",
       guestCompany: "AdviNOW Medical",
+      guestWebsite: "https://advinow.com",
       youtubeUrl: "https://www.youtube.com/live/jGzCTNyE_54",
     },
     {
@@ -92,6 +100,7 @@ export const siteConfig = {
       guest: "Peter Harris",
       guestTitle: "Partner & Principal",
       guestCompany: "University Growth Fund",
+      guestWebsite: "https://ugrowthfund.com",
       youtubeUrl: "https://www.youtube.com/live/d4vGnUnC14E",
     },
     {
@@ -100,6 +109,7 @@ export const siteConfig = {
       guest: "Erass Majdoubeh",
       guestTitle: "Partner",
       guestCompany: "Silicon Badia",
+      guestWebsite: "https://siliconbadia.com",
       youtubeUrl: "https://www.youtube.com/live/3PUi5aianUU",
     },
     {
@@ -108,6 +118,7 @@ export const siteConfig = {
       guest: "Shane Wilson",
       guestTitle: "Venture Partner",
       guestCompany: "Citta Capital",
+      guestWebsite: "https://cittacapital.com",
       youtubeUrl: "https://www.youtube.com/live/eyfZ7mT_A4w",
     },
     {
@@ -116,6 +127,7 @@ export const siteConfig = {
       guest: "Mike Ma",
       guestTitle: "Founder & Managing Partner",
       guestCompany: "Sidecut Ventures",
+      guestWebsite: "https://sidecut.vc",
       youtubeUrl: "https://www.youtube.com/live/pM2UUy5PczI",
     },
     {
@@ -124,6 +136,7 @@ export const siteConfig = {
       guest: "Peter Herz",
       guestTitle: "General Partner",
       guestCompany: "1st Course Capital",
+      guestWebsite: "https://1cc.vc",
       youtubeUrl: "https://www.youtube.com/live/z9UybTdSfrc",
     },
     {
@@ -132,6 +145,7 @@ export const siteConfig = {
       guest: "Ronald Bazar",
       guestTitle: "Founder",
       guestCompany: "SafeWave Systems",
+      guestWebsite: "https://safewave.systems",
       youtubeUrl: "https://www.youtube.com/live/uYuuI7WOvAM",
     },
     {
@@ -140,6 +154,7 @@ export const siteConfig = {
       guest: "Vishesh Rajaram",
       guestTitle: "Managing Partner",
       guestCompany: "Speciale Invest",
+      guestWebsite: "https://specialeinvest.com",
       youtubeUrl: "https://www.youtube.com/live/yIJjf1O6vS8",
     },
     {
@@ -148,6 +163,7 @@ export const siteConfig = {
       guest: "Brent Vartan",
       guestTitle: "Managing Partner",
       guestCompany: "Bullish",
+      guestWebsite: "https://bullish.co",
       youtubeUrl: "https://www.youtube.com/live/JLBxRxReEuI",
     },
     {
@@ -156,6 +172,7 @@ export const siteConfig = {
       guest: "Peter Dorfner",
       guestTitle: "Founding Principal",
       guestCompany: "Green Generation Fund",
+      guestWebsite: "https://greengenfund.com",
       youtubeUrl: "https://www.youtube.com/live/DB29XMHL95M",
     },
     {
@@ -164,6 +181,7 @@ export const siteConfig = {
       guest: "Sebastian Harris",
       guestTitle: "Founder & Managing Partner",
       guestCompany: "Sandbox Fund",
+      guestWebsite: "https://sandbox.fund",
       youtubeUrl: "https://www.youtube.com/live/4HFr7VQ_zwk",
     },
     {
@@ -172,6 +190,7 @@ export const siteConfig = {
       guest: "Craig Taggart",
       guestTitle: "Venture Partner",
       guestCompany: "Qubits Ventures",
+      guestWebsite: "https://qubitsventures.com",
       youtubeUrl: "https://www.youtube.com/live/meHYE_KWF0Q",
     },
     {
@@ -180,6 +199,7 @@ export const siteConfig = {
       guest: "Mansi Aggarwal",
       guestTitle: "Founding Partner",
       guestCompany: "Alkemi Growth Capital",
+      guestWebsite: "https://alkemivp.com",
       youtubeUrl: "https://www.youtube.com/live/lYYbDRyb9_M",
     },
     {
@@ -188,6 +208,7 @@ export const siteConfig = {
       guest: "Caleb Pedosiuk",
       guestTitle: "Creative Director & CEO",
       guestCompany: "79 Development",
+      guestWebsite: "https://79dev.com",
       youtubeUrl: "https://www.youtube.com/live/hbptJH2NEI8",
     },
     {
@@ -196,6 +217,7 @@ export const siteConfig = {
       guest: "Jonah Probell",
       guestTitle: "Managing Partner",
       guestCompany: "Lexi Ventures",
+      guestWebsite: "https://www.lexi.vc/",
       youtubeUrl: "https://www.youtube.com/live/8BnbvEi48Ns",
     },
     {
@@ -204,6 +226,7 @@ export const siteConfig = {
       guest: "Rudi Adigbli",
       guestTitle: "Founder",
       guestCompany: "ReeWire Ventures",
+      guestWebsite: "https://reewire.vc",
       youtubeUrl: "https://www.youtube.com/live/MmBqf22JEcM",
     },
     {
@@ -212,6 +235,7 @@ export const siteConfig = {
       guest: "Susana Espinosa de los Reyes",
       guestTitle: "Partner",
       guestCompany: "Dux Capital",
+      guestWebsite: "https://duxcapital.vc",
       youtubeUrl: "https://www.youtube.com/live/NfNbhh_bM5E?si=z_cFtUmJY7-4IG5T",
     },
     {
@@ -220,6 +244,7 @@ export const siteConfig = {
       guest: "Carlos Rousseau",
       guestTitle: "Managing Partner",
       guestCompany: "Second Century Ventures",
+      guestWebsite: "https://secondcenturyventures.com",
       youtubeUrl: "https://www.youtube.com/live/kQtoGvSX8X8?si=4k2pVOWsFSh6CfSX",
     },
     {
@@ -228,6 +253,7 @@ export const siteConfig = {
       guest: "Julian Scadden",
       guestTitle: "President & CEO",
       guestCompany: "Nexstar Network",
+      guestWebsite: "https://nexstarnetwork.com",
       youtubeUrl: "https://www.youtube.com/live/2mob1KF3PD0?si=MzaFFW0_GNVQrPIA",
     },
     {
@@ -236,6 +262,7 @@ export const siteConfig = {
       guest: "Vadim Tarasov",
       guestTitle: "Managing Partner",
       guestCompany: "AAS Fund & UAVOS",
+      guestWebsite: "https://aas.fund",
       youtubeUrl: "https://www.youtube.com/live/hd5SVjxTE34?si=slELN3M5m7ZNDnva",
     },
     {
@@ -244,6 +271,7 @@ export const siteConfig = {
       guest: "Andrew McLuhan",
       guestTitle: "Founder",
       guestCompany: "The McLuhan Institute",
+      guestWebsite: "https://themcluhaninstitute.com",
       youtubeUrl: "https://www.youtube.com/live/dQVk8XGIyxs?si=khF2EeUKoPGuYlOo",
     },
     {
@@ -252,6 +280,7 @@ export const siteConfig = {
       guest: "Ashley Heron",
       guestTitle: "Founder",
       guestCompany: "Comma8",
+      guestWebsite: "https://commaeight.com",
       youtubeUrl: "https://youtube.com/live/accgqB3TOc0",
     },
     {
@@ -260,6 +289,7 @@ export const siteConfig = {
       guest: "Andrew Romans",
       guestTitle: "Managing Partner",
       guestCompany: "7BC Venture Capital",
+      guestWebsite: "https://7bc.vc",
       youtubeUrl: "https://youtube.com/live/aJ4cIgAtvGU",
     },
     {
@@ -268,6 +298,7 @@ export const siteConfig = {
       guest: "Daniela Pacheco",
       guestTitle: "Partner",
       guestCompany: "NVGroup",
+      guestWebsite: "https://nvgroup.org",
       youtubeUrl: "https://youtube.com/live/lNAsH1evEcU",
     },
     {
@@ -276,6 +307,7 @@ export const siteConfig = {
       guest: "Lindley Lentati",
       guestTitle: "Founder",
       guestCompany: "Cambridge Inference",
+      guestWebsite: "https://cambridgeinference.com",
       youtubeUrl: "https://youtube.com/live/0mRzdim0T4I",
     },
     {
@@ -284,6 +316,7 @@ export const siteConfig = {
       guest: "Justin Oberman",
       guestTitle: "Founder",
       guestCompany: "Oberman Partners",
+      guestWebsite: "https://obermanpartners.com",
       xUrl: "https://x.com/i/broadcasts/1lJQRvyVPNMxE",
       youtubeUrl: "https://www.youtube.com/live/VXm3utlnql4?si=6VwPBb_8X9EyTP8s",
     },
@@ -293,6 +326,7 @@ export const siteConfig = {
       guest: "Jay Yarlagadda",
       guestTitle: "General Partner",
       guestCompany: "Atoms VC",
+      guestWebsite: "https://atoms.vc",
       xUrl: "https://x.com/i/broadcasts/1dGYljOWZXlKX",
       youtubeUrl: "https://www.youtube.com/live/rWPPVG51iDQ?si=TcFKYu9_4RRxBXvb",
     },
@@ -302,6 +336,7 @@ export const siteConfig = {
       guest: "Emily Kegels",
       guestTitle: "Partner",
       guestCompany: "PitchDrive VC",
+      guestWebsite: "https://pitchdrive.com",
       xUrl: "https://x.com/thespeakerlisan/status/2051294075001975085",
       youtubeUrl: "https://www.youtube.com/live/zeJbxqsBUcs?si=KcdDRcvd6Ya7iJRm",
     },
@@ -311,6 +346,7 @@ export const siteConfig = {
       guest: "Justin Reynolds",
       guestTitle: "Founder & Venture Builder",
       guestCompany: "Tashinga Partnership",
+      guestWebsite: "https://tashingapartnership.com",
       xUrl: "https://x.com/i/broadcasts/1AKEmOVqgvnKL",
       youtubeUrl: "https://www.youtube.com/watch?v=KrfY5Kjbd44",
     },
@@ -320,6 +356,7 @@ export const siteConfig = {
       guest: "Peter Micca",
       guestTitle: "Managing Partner",
       guestCompany: "Caduceus Capital Partners",
+      guestWebsite: "https://caduceus.vc",
       youtubeUrl: "https://youtu.be/VYSBwQBJfXM?si=pjbGntcYwtkam1pL",
     },
     {
@@ -328,6 +365,7 @@ export const siteConfig = {
       guest: "Mark Francis",
       guestTitle: "Founder",
       guestCompany: "Preferred",
+      guestWebsite: "https://www.preferrd.io/",
       xUrl: "https://x.com/i/broadcasts/1PKqrEZDVgQGb",
       youtubeUrl: "https://www.youtube.com/watch?v=UpphOFgNhh4",
     },
@@ -337,6 +375,7 @@ export const siteConfig = {
       guest: "Matt Ober",
       guestTitle: "Managing Partner",
       guestCompany: "Social Leverage",
+      guestWebsite: "https://socialleverage.com",
       xUrl: "https://x.com/i/broadcasts/1nJOLEdOQEkxR",
     },
     {
@@ -353,6 +392,7 @@ export const siteConfig = {
       guest: "Tochi Chukwuemeka",
       guestTitle: "Co-Founder",
       guestCompany: "PajCash",
+      guestWebsite: "https://paj.cash",
       xUrl: "https://x.com/thespeakerlisan/status/2045494019497836568",
     },
     {
@@ -361,6 +401,7 @@ export const siteConfig = {
       guest: "Kevin Zhang",
       guestTitle: "Co-Founder",
       guestCompany: "Loon",
+      guestWebsite: "https://loon.finance",
       xUrl: "https://x.com/thespeakerlisan/status/2045140831976542240",
       youtubeUrl: "https://www.youtube.com/watch?v=7JWEhgWm4M4",
     },
@@ -370,6 +411,7 @@ export const siteConfig = {
       guest: "Sunny Ray",
       guestTitle: "Co-Founder, RaaSRocket & President",
       guestCompany: "Unocoin",
+      guestWebsite: "https://unocoin.com",
       xUrl: "https://x.com/thespeakerlisan/status/2044877463785013252",
       youtubeUrl: "https://www.youtube.com/watch?v=EreH4lVMzUA",
     },
@@ -379,6 +421,7 @@ export const siteConfig = {
       guest: "Varun Turlapati",
       guestTitle: "Managing Director",
       guestCompany: "Chaanakya Capital",
+      guestWebsite: "https://chaanakya.capital",
       xUrl: "https://x.com/thespeakerlisan/status/2040173652868767985",
       youtubeUrl: "https://www.youtube.com/watch?v=oPjqOAxsND0",
     },
@@ -388,6 +431,7 @@ export const siteConfig = {
       guest: "Yangchen Sharma",
       guestTitle: "General Partner",
       guestCompany: "Roundtable Ventures",
+      guestWebsite: "https://roundtableventure.com",
       xUrl: "https://x.com/thespeakerlisan/status/2039471823423975808",
       youtubeUrl: "https://www.youtube.com/watch?v=v9g4T7kPw48",
     },
@@ -397,6 +441,7 @@ export const siteConfig = {
       guest: "Charles Cormier",
       guestTitle: "CEO",
       guestCompany: "RaaSRocket",
+      guestWebsite: "https://raasrocket.com/",
       xUrl: "https://x.com/thespeakerlisan/status/2038694757166379327",
       youtubeUrl: "https://www.youtube.com/watch?v=1RGwcT57MJU",
     },
