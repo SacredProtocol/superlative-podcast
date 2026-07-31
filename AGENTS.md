@@ -121,16 +121,43 @@ Normalize `"President, CEO"` → `"President & CEO"`.
 
 Renders the episode's `guestCompany` as a link. Source in this order, stop at the first **live** URL:
 
-1. **Attio `companies`** — `search-records` on the `companies` object by company name; the `domains` attribute is authoritative. For batch adds, fan out parallel searches (or subagents, one per chunk of guests).
+1. **Attio, via the guest** — `search-records` on `people` by guest name, then follow that person's `company` reference and read its `domains`. **Always go person → company, never company-name search.** A name search returns whichever duplicate ranks first; the person's link is the one that reflects reality.
 2. **Email signatures** — when a domain is missing, dead, or looks wrong, read the guest's own emails: `search-emails-by-metadata` (participant = guest email, or `domain =` their domain) → `get-email-content` on a message they *sent*. Signatures carry the live homepage or LinkedIn.
 3. **Notion** — episode page prep notes, or the `Email` property's domain as a hint.
 4. **Ask the user.**
 
+For batch work, fan out the `people` searches in parallel, collect the company `record_id`s, then read them in bulk with `get-records-by-ids` (batches of 6–8) rather than one call per guest.
+
 Gotchas:
 
-- **Mis-enriched / duplicate Attio records.** Clearbit-style enrichment sometimes attaches the wrong company (a generic `.com`, wrong location/category). Sanity-check the domain against the guest's own email domain; if they disagree, trust the signature. Duplicates also mean a `domains` write can **409-conflict** (the correct domain already lives on another record) — report it, do not force-merge.
+- **The guest's own email domain is the tiebreaker.** Every duplicate resolved so far was settled by it: `tochi@paj.cash` beat the `pajcash.com` record, `mark@preferrd.io` beat the `preferred.com` one. When enrichment and the guest's address disagree, the address wins.
+- **Mis-enriched / duplicate Attio records.** Clearbit-style enrichment sometimes attaches the wrong company (a generic `.com`, wrong location/category). Duplicates also mean a `domains` write can **409-conflict** (the correct domain already lives on another record) — report it, do not force-merge.
+- **Duplicate *person* records are just as common as duplicate companies.** A guest often has two: one auto-created from email, one hand-made with the good notes — each pointing at a different company. Reconcile both before concluding anything.
+- **Enrichment collisions:** a record can hold the *right* domain under the *wrong* name and description (a record holding `loon.finance` was named "PayTrie", carrying PayTrie's logo, description and Twitter). Trust `domains`; treat every other enriched field as suspect.
+- **The podcast company is often not the guest's primary Attio company.** Sunny Ray links to SunnyRay.com but appeared as Unocoin; Kevin Zhang links to Paytrie but appeared as Loon; Charles Cormier links to GTM Ventures but appeared as RaaSRocket. This is not an error to fix — just don't assume `person.company` is the episode's company.
 - Some guests have **no live site** and run everything off **LinkedIn** — use the LinkedIn company URL (e.g. `https://www.linkedin.com/company/<slug>/`) as `guestWebsite`.
 - Normalize to a clean `https://` URL. Omit `guestWebsite` entirely if none exists — never `""`.
+
+### Syncing `guestWebsite` back to Attio
+
+**`src/config.ts` is the source of truth for company websites** — it holds hand-verified, user-confirmed URLs. Attio should be made to match it, not the other way round.
+
+To sync: for each episode with a `guestWebsite`, resolve guest → person → company (above) and compare `domains` to the config URL's host. Then, by case:
+
+| Situation | Action |
+|---|---|
+| Domains agree | Nothing to do |
+| Guest linked to a mis-enriched duplicate | Re-link the person to the record holding the correct domain, and leave a note on the wrong record flagging it for deletion |
+| Correct domain exists but the record is unnamed / misnamed | Set `name`; note which enriched fields are still stale |
+| Domain absent from the workspace entirely | `create-record` on `companies` with the domain, then link the guest |
+| Config uses a LinkedIn URL (no live site) | Leave Attio alone — its registered domain is not wrong |
+
+Rules for these writes:
+
+- **Never delete or merge records.** Merging is destructive and Attio has no undo — write a note flagging the duplicate and leave the deletion to a human.
+- **Before superseding a record, copy its `description` onto the keeper.** The mis-enriched record is often the one carrying all the hand-written CRM context.
+- **Don't sever a correct link to create another.** `person.company` is single-value; if a guest already points at a legitimate company, link a *different* (duplicate or unlinked) person record rather than overwriting.
+- Notes should name the wrong domain, the right domain, the evidence for it, the surviving record ID, and what was already done.
 
 ## X links (deprecated)
 
@@ -179,6 +206,7 @@ After config is written (and pushed if requested):
 
 - [ ] Notion episode `Select` status → `Podcast Recorded`
 - [ ] `guestWebsite` set (Attio / email signature) wherever a live URL exists
+- [ ] Attio reflects that `guestWebsite` — guest's linked company carries the same domain (see sync table above)
 - [ ] Verify episode appears at top of live site episode list
 
 ---

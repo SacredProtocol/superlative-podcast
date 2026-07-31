@@ -17,7 +17,7 @@ Canonical reference: [AGENTS.md](../../AGENTS.md). Follow it exactly.
 1. Run `node scripts/preview-episode.mjs --auto` (or with explicit episode numbers).
 2. Resolve Notion metadata via `notion-query-database-view` on the Episodes view URL.
 3. Resolve `guestTitle` (Notion prep notes first in Cursor; Attio if MCP available).
-4. Resolve `guestWebsite` (Attio `companies.domains` → email signatures → Notion → user).
+4. Resolve `guestWebsite` (Attio person → company → `domains` → email signatures → Notion → user).
 5. Print preview table → confirm with user → write `src/config.ts`.
 6. Run `npx tsc --noEmit`.
 7. Commit and push **only when the user explicitly asks**.
@@ -59,7 +59,13 @@ For an older / oddly-titled upload, paginate the uploads playlist with `pageToke
 
 ## guestWebsite lookup
 
-Renders `guestCompany` as a link. Source in order, first **live** URL wins: Attio `companies.domains` (fan out parallel searches for batches) → the guest's **email signature** (`search-emails-by-metadata` → `get-email-content` on a message they sent) → Notion prep notes → ask user. Watch for mis-enriched/duplicate Attio records (verify the domain against the guest's email domain); some guests use a **LinkedIn** company URL instead of a site. See AGENTS.md for the full routine.
+Renders `guestCompany` as a link. Source in order, first **live** URL wins: Attio **person → `company` → `domains`** (never a company-name search; fan out the `people` searches in parallel for batches, then bulk-read companies with `get-records-by-ids`) → the guest's **email signature** (`search-emails-by-metadata` → `get-email-content` on a message they sent) → Notion prep notes → ask user.
+
+Watch for: mis-enriched and duplicate Attio records, **duplicate person records** for one guest pointing at different companies, and enrichment collisions where the right domain sits under the wrong name. **The guest's own email domain is the tiebreaker.** Some guests use a **LinkedIn** company URL instead of a site. See AGENTS.md for the full routine.
+
+### Syncing back to Attio
+
+`src/config.ts` is the **source of truth** for company websites — Attio is made to match it. Re-link guests off mis-enriched duplicates, name unnamed records, create records for domains missing entirely. **Never delete or merge** — leave a note flagging the duplicate and let a human do it; copy the old record's `description` onto the keeper first. Full case table in AGENTS.md.
 
 ## guestTitle lookup
 
@@ -92,4 +98,5 @@ After config is written (and pushed if requested):
 
 - [ ] Notion episode status → `Podcast Recorded`
 - [ ] `guestWebsite` set (Attio / email signature) wherever a live URL exists
+- [ ] Attio reflects that `guestWebsite` — guest's linked company carries the same domain
 - [ ] Verify episode appears at top of live site episode list
