@@ -151,7 +151,7 @@ function Episodes() {
         <div className="mt-0 flex flex-col">
           {siteConfig.episodes.map((ep, i) => {
             const epNum = String(total - i).padStart(2, "0");
-            const primaryUrl = ep.youtubeUrl || ep.xUrl;
+            const primaryUrl = ep.youtubeUrl;
             return (
               <div
                 key={ep.title}
@@ -162,7 +162,7 @@ function Episodes() {
                   {epNum}
                 </span>
 
-                {/* Play button — links to primary platform */}
+                {/* Play button — links to YouTube */}
                 <a
                   href={primaryUrl || "#"}
                   target="_blank"
@@ -191,16 +191,6 @@ function Episodes() {
                     </span>
                   )}
                   <div className="flex gap-2 mt-2 flex-wrap">
-                    {ep.xUrl && (
-                      <a
-                        href={ep.xUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 font-sans text-[10px] border border-border rounded-full px-2.5 py-1 text-muted hover:text-foreground hover:border-foreground transition-colors"
-                      >
-                        <XIcon size={9} /> Watch on X
-                      </a>
-                    )}
                     {ep.youtubeUrl && (
                       <a
                         href={ep.youtubeUrl}

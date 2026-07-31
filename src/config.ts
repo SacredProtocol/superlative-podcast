@@ -20,7 +20,7 @@ export const siteConfig = {
   },
 
   // Featured episodes — add new episodes at the top
-  // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
+  // youtubeUrl: YouTube video or livestream link
   episodes: [
     {
       title: "Episode 46",
@@ -317,7 +317,6 @@ export const siteConfig = {
       guestTitle: "Founder",
       guestCompany: "Oberman Partners",
       guestWebsite: "https://obermanpartners.com",
-      xUrl: "https://x.com/i/broadcasts/1lJQRvyVPNMxE",
       youtubeUrl: "https://www.youtube.com/live/VXm3utlnql4?si=6VwPBb_8X9EyTP8s",
     },
     {
@@ -327,7 +326,6 @@ export const siteConfig = {
       guestTitle: "General Partner",
       guestCompany: "Atoms VC",
       guestWebsite: "https://atoms.vc",
-      xUrl: "https://x.com/i/broadcasts/1dGYljOWZXlKX",
       youtubeUrl: "https://www.youtube.com/live/rWPPVG51iDQ?si=TcFKYu9_4RRxBXvb",
     },
     {
@@ -337,7 +335,6 @@ export const siteConfig = {
       guestTitle: "Partner",
       guestCompany: "PitchDrive VC",
       guestWebsite: "https://pitchdrive.com",
-      xUrl: "https://x.com/thespeakerlisan/status/2051294075001975085",
       youtubeUrl: "https://www.youtube.com/live/zeJbxqsBUcs?si=KcdDRcvd6Ya7iJRm",
     },
     {
@@ -347,7 +344,6 @@ export const siteConfig = {
       guestTitle: "Founder & Venture Builder",
       guestCompany: "Tashinga Partnership",
       guestWebsite: "https://tashingapartnership.com",
-      xUrl: "https://x.com/i/broadcasts/1AKEmOVqgvnKL",
       youtubeUrl: "https://www.youtube.com/watch?v=KrfY5Kjbd44",
     },
     {
@@ -366,7 +362,6 @@ export const siteConfig = {
       guestTitle: "Founder",
       guestCompany: "Preferred",
       guestWebsite: "https://www.preferrd.io/",
-      xUrl: "https://x.com/i/broadcasts/1PKqrEZDVgQGb",
       youtubeUrl: "https://www.youtube.com/watch?v=UpphOFgNhh4",
     },
     {
@@ -376,7 +371,7 @@ export const siteConfig = {
       guestTitle: "Managing Partner",
       guestCompany: "Social Leverage",
       guestWebsite: "https://socialleverage.com",
-      xUrl: "https://x.com/i/broadcasts/1nJOLEdOQEkxR",
+      youtubeUrl: "https://www.youtube.com/watch?v=2vwsNHVIR6Y",
     },
     {
       title: "Episode 7",
@@ -384,7 +379,7 @@ export const siteConfig = {
       guest: "DaVinci Jeremie",
       guestTitle: "Bitcoin Pioneer & Crypto Educator",
       guestCompany: "",
-      xUrl: "https://x.com/i/broadcasts/1yKAPMvzBjaxb",
+      youtubeUrl: "https://www.youtube.com/watch?v=lbPaTnRF17I",
     },
     {
       title: "Episode 6",
@@ -393,7 +388,7 @@ export const siteConfig = {
       guestTitle: "Co-Founder",
       guestCompany: "PajCash",
       guestWebsite: "https://paj.cash",
-      xUrl: "https://x.com/thespeakerlisan/status/2045494019497836568",
+      youtubeUrl: "https://www.youtube.com/watch?v=apSV5Pn4BXc",
     },
     {
       title: "Episode 5",
@@ -402,7 +397,6 @@ export const siteConfig = {
       guestTitle: "Co-Founder",
       guestCompany: "Loon",
       guestWebsite: "https://loon.finance",
-      xUrl: "https://x.com/thespeakerlisan/status/2045140831976542240",
       youtubeUrl: "https://www.youtube.com/watch?v=7JWEhgWm4M4",
     },
     {
@@ -412,7 +406,6 @@ export const siteConfig = {
       guestTitle: "Co-Founder, RaaSRocket & President",
       guestCompany: "Unocoin",
       guestWebsite: "https://unocoin.com",
-      xUrl: "https://x.com/thespeakerlisan/status/2044877463785013252",
       youtubeUrl: "https://www.youtube.com/watch?v=EreH4lVMzUA",
     },
     {
@@ -422,7 +415,6 @@ export const siteConfig = {
       guestTitle: "Managing Director",
       guestCompany: "Chaanakya Capital",
       guestWebsite: "https://chaanakya.capital",
-      xUrl: "https://x.com/thespeakerlisan/status/2040173652868767985",
       youtubeUrl: "https://www.youtube.com/watch?v=oPjqOAxsND0",
     },
     {
@@ -432,7 +424,6 @@ export const siteConfig = {
       guestTitle: "General Partner",
       guestCompany: "Roundtable Ventures",
       guestWebsite: "https://roundtableventure.com",
-      xUrl: "https://x.com/thespeakerlisan/status/2039471823423975808",
       youtubeUrl: "https://www.youtube.com/watch?v=v9g4T7kPw48",
     },
     {
@@ -442,7 +433,6 @@ export const siteConfig = {
       guestTitle: "CEO",
       guestCompany: "RaaSRocket",
       guestWebsite: "https://raasrocket.com/",
-      xUrl: "https://x.com/thespeakerlisan/status/2038694757166379327",
       youtubeUrl: "https://www.youtube.com/watch?v=1RGwcT57MJU",
     },
   ],
