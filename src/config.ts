@@ -23,6 +23,38 @@ export const siteConfig = {
   // xUrl: X broadcast or post link | youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 46",
+      episodeTitle: "Alberta Is Blue Ocean",
+      guest: "Maxim Atanassov",
+      guestTitle: "Founder",
+      guestCompany: "Future Ventures",
+      youtubeUrl: "https://www.youtube.com/live/jt2LtrDIDeE",
+    },
+    {
+      title: "Episode 45",
+      episodeTitle: "Talk to Five People, Not a Hundred",
+      guest: "Jonathan D. Fox",
+      guestTitle: "Founder & Managing Partner",
+      guestCompany: "Z2 Value Creation",
+      youtubeUrl: "https://www.youtube.com/live/AS8ldJfUXh4",
+    },
+    {
+      title: "Episode 44",
+      episodeTitle: "The Meeting Should Finish the Work",
+      guest: "Mark Barbir",
+      guestTitle: "Co-Founder & CEO",
+      guestCompany: "Earmark",
+      youtubeUrl: "https://www.youtube.com/live/xxDSYD_mEoU",
+    },
+    {
+      title: "Episode 43",
+      episodeTitle: "The LPs Are the Product. That's What Most VCs Still Don't Get.",
+      guest: "Vaibhavi Nesarikar",
+      guestTitle: "Principal",
+      guestCompany: "GTMfund",
+      youtubeUrl: "https://www.youtube.com/live/2BZ8i4Bp2ZY",
+    },
+    {
       title: "Episode 42",
       episodeTitle: "Europe's VCs Are Spreadsheet Warriors",
       guest: "Thijn van Helvoirt",
