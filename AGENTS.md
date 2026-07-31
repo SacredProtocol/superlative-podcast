@@ -23,8 +23,8 @@ All episode data is in `src/config.ts` inside the `siteConfig.episodes` array. E
   guest: "Ashley Heron",                      // Guest full name
   guestTitle: "Founder",                      // Role/title
   guestCompany: "Comma8",                     // Company name — can be ""
-  xUrl?: "https://x.com/...",                // X broadcast or post link (optional)
-  youtubeUrl?: "https://youtube.com/live/...", // YouTube video or livestream link (optional)
+  guestWebsite?: "https://commaeight.com",    // Company website — renders company name as a link (optional)
+  youtubeUrl?: "https://youtube.com/live/...", // YouTube video or livestream link
 }
 ```
 
@@ -32,8 +32,9 @@ All episode data is in `src/config.ts` inside the `siteConfig.episodes` array. E
 
 - Add new episodes at the **top** of `siteConfig.episodes`
 - Display episode numbers are derived from array index — keep array newest-first; do not encode numbers elsewhere
-- At least one of `xUrl` or `youtubeUrl` should be present; both shows two platform pills
-- Play button uses **YouTube first**: `ep.youtubeUrl || ep.xUrl`
+- The site is **YouTube-only** for episode video — every episode should have a `youtubeUrl` (see X links section)
+- Play button and the single "Watch on YouTube" pill both use `ep.youtubeUrl`
+- `guestWebsite`, when set, renders `guestCompany` as a hover-highlighted link via the `CompanyName` component in `page.tsx`
 - Episode rows are `<div>` elements with separate link pills — do not wrap the whole row in `<a>`
 - React list `key` is `ep.title`, not URL fields
 
@@ -69,7 +70,7 @@ After publishing to the site, update status to `Podcast Recorded` (see post-publ
 | `Firm or Company`       | `guestCompany`  | Drop trailing parentheticals like `" (SCV.VC)"`    |
 | *(not in Notion)*       | `guestTitle`    | See guestTitle lookup below                        |
 | *(YouTube API)*         | `youtubeUrl`    | Auto-fetched by guest name match; user can override|
-| *(provided by user)*    | `xUrl`          | X broadcast URL — see X links section              |
+| *(Attio / signatures)*  | `guestWebsite`  | Company website — see website sourcing below       |
 
 ### episodeTitle convention
 
@@ -93,6 +94,10 @@ Match by checking whether the guest's **first and last name tokens** both appear
 
 Or run `node scripts/preview-episode.mjs --auto` to list unlinked uploads and suggested next episode number.
 
+### Full-channel scan (older / mistitled uploads)
+
+`maxResults=25` only covers recent uploads. To find an older or oddly-titled video (early episodes are titled `TSP EPn: Guest …`, not by episode headline), paginate the uploads playlist with `pageToken` until `nextPageToken` is absent. Parse JSON with Python `json.loads(…, strict=False)` — some titles contain raw newlines that break strict parsing and can silently drop an entire page (which once made three on-channel episodes look X-only).
+
 ---
 
 ## guestTitle lookup
@@ -112,14 +117,24 @@ Normalize `"President, CEO"` → `"President & CEO"`.
 
 ---
 
-## X links
+## Guest company website (`guestWebsite`)
 
-X broadcast links live in the **Podcast Artifacts** database or on @thespeakerlisan's profile:
+Renders the episode's `guestCompany` as a link. Source in this order, stop at the first **live** URL:
 
-- Broadcasts: `https://x.com/i/broadcasts/XXXXXX`
-- Posts: `https://x.com/thespeakerlisan/status/XXXXXXXXXX`
+1. **Attio `companies`** — `search-records` on the `companies` object by company name; the `domains` attribute is authoritative. For batch adds, fan out parallel searches (or subagents, one per chunk of guests).
+2. **Email signatures** — when a domain is missing, dead, or looks wrong, read the guest's own emails: `search-emails-by-metadata` (participant = guest email, or `domain =` their domain) → `get-email-content` on a message they *sent*. Signatures carry the live homepage or LinkedIn.
+3. **Notion** — episode page prep notes, or the `Email` property's domain as a hint.
+4. **Ask the user.**
 
-Episodes 5–8 (early era) are X-only. Omit `youtubeUrl` if unavailable; omit `xUrl` if unavailable — never set to `""`.
+Gotchas:
+
+- **Mis-enriched / duplicate Attio records.** Clearbit-style enrichment sometimes attaches the wrong company (a generic `.com`, wrong location/category). Sanity-check the domain against the guest's own email domain; if they disagree, trust the signature. Duplicates also mean a `domains` write can **409-conflict** (the correct domain already lives on another record) — report it, do not force-merge.
+- Some guests have **no live site** and run everything off **LinkedIn** — use the LinkedIn company URL (e.g. `https://www.linkedin.com/company/<slug>/`) as `guestWebsite`.
+- Normalize to a clean `https://` URL. Omit `guestWebsite` entirely if none exists — never `""`.
+
+## X links (deprecated)
+
+The site is **YouTube-only**. X/Twitter removes broadcast videos after ~3 months, so per-episode `xUrl` links rot — the `xUrl` field and the "Watch on X" pill have been removed. Do **not** add `xUrl` to episodes; find the YouTube upload instead (early episodes exist on YouTube under `TSP EPn: Guest …` titles). The show-level X profile/follow links (`siteConfig.xProfileUrl`) are unaffected.
 
 ---
 
@@ -163,7 +178,7 @@ When the user says "new podcast on YouTube" (or similar) without an episode numb
 After config is written (and pushed if requested):
 
 - [ ] Notion episode `Select` status → `Podcast Recorded`
-- [ ] Add `xUrl` to config when X broadcast link is available
+- [ ] `guestWebsite` set (Attio / email signature) wherever a live URL exists
 - [ ] Verify episode appears at top of live site episode list
 
 ---
@@ -188,7 +203,7 @@ guestCompany: "Unocoin",
 
 ### Link added later
 
-Add the missing `xUrl` or `youtubeUrl` field to the existing entry — no other changes needed.
+Add the missing `youtubeUrl` or `guestWebsite` field to the existing entry — no other changes needed.
 
 ### guestTitle without guestCompany
 
