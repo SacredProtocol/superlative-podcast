@@ -23,6 +23,24 @@ export const siteConfig = {
   // youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 48",
+      episodeTitle: "Alpha Is Nothing Without Infrastructure",
+      guest: "Alessandro Greco",
+      guestTitle: "Founder",
+      guestCompany: "Sigma Strategy",
+      guestWebsite: "https://sigmastrategy.ai",
+      youtubeUrl: "https://www.youtube.com/live/0UqSUPJ9UXM",
+    },
+    {
+      title: "Episode 47",
+      episodeTitle: "US Fund Advice Locks You Out of Africa",
+      guest: "Nadia Seemuth",
+      guestTitle: "Managing Partner",
+      guestCompany: "Jambaar Capital",
+      guestWebsite: "https://www.linkedin.com/company/jambaar-capital/",
+      youtubeUrl: "https://www.youtube.com/live/Eev3nUrvx10",
+    },
+    {
       title: "Episode 46",
       episodeTitle: "Alberta Is Blue Ocean",
       guest: "Maxim Atanassov",
