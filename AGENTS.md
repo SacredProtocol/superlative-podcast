@@ -200,6 +200,21 @@ When the user says "new podcast on YouTube" (or similar) without an episode numb
 
 ---
 
+## Deploying
+
+**Vercel is wired to this repository and deploys automatically on push to `main`.** A push is the
+deploy: there is no manual step, and a small change is live in well under a minute. Production is
+[superlativepodcast.com](https://superlativepodcast.com), which redirects to the `www` host.
+
+`deploy.sh` used to sit in the repository root describing a self-hosted flow (`git pull`,
+`npm run build`, `pm2 restart showrunner`). That flow is retired and the script was deleted on
+2026-09-09, because it was still being read as current and led to the claim that a push would not
+publish anything.
+
+The Vercel project is **not** visible from the Baptisia Ventures Vercel team, and the repository
+carries no `.vercel/project.json`, so the deployment cannot be inspected through Vercel tooling
+from a normal checkout. Verify against the production URL instead.
+
 ## Post-publish checklist
 
 After config is written (and pushed if requested):
@@ -207,7 +222,7 @@ After config is written (and pushed if requested):
 - [ ] Notion episode `Select` status → `Podcast Recorded`
 - [ ] `guestWebsite` set (Attio / email signature) wherever a live URL exists
 - [ ] Attio reflects that `guestWebsite` — guest's linked company carries the same domain (see sync table above)
-- [ ] Verify episode appears at top of live site episode list
+- [ ] Verify episode appears at top of the episode list on https://superlativepodcast.com (Vercel deploys on push; allow ~30s)
 
 ---
 
