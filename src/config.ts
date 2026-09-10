@@ -37,7 +37,7 @@ export const siteConfig = {
       guest: "Nadia Seemuth",
       guestTitle: "Managing Partner",
       guestCompany: "Jambaar Capital",
-      guestWebsite: "https://jambaar-capital.com",
+      guestWebsite: "https://www.linkedin.com/company/jambaar-capital/",
       youtubeUrl: "https://www.youtube.com/live/Eev3nUrvx10",
     },
     {
