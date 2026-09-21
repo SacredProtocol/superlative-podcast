@@ -24,21 +24,21 @@ export const siteConfig = {
   episodes: [
     {
       title: "Episode 52",
-      episodeTitle: "Onchain Data Is a Hidden Craft",
-      guest: "Vincent Charles",
-      guestTitle: "Founder",
-      guestCompany: "Unchain Data",
-      guestWebsite: "https://unchaindata.xyz",
-      youtubeUrl: "https://www.youtube.com/live/jecEZXwvPHM",
-    },
-    {
-      title: "Episode 51",
       episodeTitle: "Tokyo Is the Underserved Market",
       guest: "Richard Samuelson",
       guestTitle: "Managing Partner & Co-Founder",
       guestCompany: "SWAN Venture Group",
       guestWebsite: "https://swanvg.com",
       youtubeUrl: "https://www.youtube.com/live/oOGGQyawfYU",
+    },
+    {
+      title: "Episode 51",
+      episodeTitle: "Onchain Data Is a Hidden Craft",
+      guest: "Vincent Charles",
+      guestTitle: "Founder",
+      guestCompany: "Unchain Data",
+      guestWebsite: "https://unchaindata.xyz",
+      youtubeUrl: "https://www.youtube.com/live/jecEZXwvPHM",
     },
     {
       title: "Episode 50",
