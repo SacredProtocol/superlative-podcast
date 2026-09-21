@@ -23,6 +23,42 @@ export const siteConfig = {
   // youtubeUrl: YouTube video or livestream link
   episodes: [
     {
+      title: "Episode 52",
+      episodeTitle: "Onchain Data Is a Hidden Craft",
+      guest: "Vincent Charles",
+      guestTitle: "Founder",
+      guestCompany: "Unchain Data",
+      guestWebsite: "https://unchaindata.xyz",
+      youtubeUrl: "https://www.youtube.com/live/jecEZXwvPHM",
+    },
+    {
+      title: "Episode 51",
+      episodeTitle: "Tokyo Is the Underserved Market",
+      guest: "Richard Samuelson",
+      guestTitle: "Managing Partner & Co-Founder",
+      guestCompany: "SWAN Venture Group",
+      guestWebsite: "https://swanvg.com",
+      youtubeUrl: "https://www.youtube.com/live/oOGGQyawfYU",
+    },
+    {
+      title: "Episode 50",
+      episodeTitle: "Don’t Be the Biggest Risk to Your Startup",
+      guest: "Audrey Nesbitt",
+      guestTitle: "Founder & CEO",
+      guestCompany: "SPINNOVATE Tech",
+      guestWebsite: "https://www.linkedin.com/company/spinnovate-tech/",
+      youtubeUrl: "https://www.youtube.com/live/dx5E0NL70lo",
+    },
+    {
+      title: "Episode 49",
+      episodeTitle: "Investing at First Signal",
+      guest: "Jamal Trotman",
+      guestTitle: "Co-Founder & GP",
+      guestCompany: "Radix Innovation Capital",
+      guestWebsite: "https://radixinnovation.com",
+      youtubeUrl: "https://www.youtube.com/live/FnzGA3efDA4",
+    },
+    {
       title: "Episode 48",
       episodeTitle: "Alpha Is Nothing Without Infrastructure",
       guest: "Alessandro Greco",
