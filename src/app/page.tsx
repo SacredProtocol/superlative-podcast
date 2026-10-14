@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { siteConfig } from "@/config";
 
 /* ═══ Icons ═══════════════════════════════════════════════════════ */
@@ -338,6 +339,10 @@ function Footer() {
       <div className="w-full max-w-2xl mx-auto flex flex-col items-center gap-5 sm:flex-row sm:justify-between">
         <span className="font-sans text-[11px] sm:text-xs !text-[#ffffff]/30 order-2 sm:order-1">
           &copy; {new Date().getFullYear()} {siteConfig.showName}
+          <span aria-hidden="true"> · </span>
+          <Link href="/privacy" className="hover:!text-[#ffffff] transition-colors duration-200">
+            Privacy
+          </Link>
         </span>
 
         <nav className="flex items-center gap-5 order-1 sm:order-2">
